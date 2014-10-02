@@ -7,8 +7,26 @@ public class AdminDTO {
 	private String Phone;
 	private String Address;
 	private String Email;
+	private String Fullname;
 	
 	
+	public AdminDTO(int iD_Admin, String userName, String passWord,
+			String phone, String address, String email, String fullname) {
+		super();
+		ID_Admin = iD_Admin;
+		UserName = userName;
+		PassWord = passWord;
+		Phone = phone;
+		Address = address;
+		Email = email;
+		Fullname = fullname;
+	}
+	public String getFullname() {
+		return Fullname;
+	}
+	public void setFullname(String fullname) {
+		Fullname = fullname;
+	}
 	public int getID_Admin() {
 		return ID_Admin;
 		
@@ -46,16 +64,8 @@ public class AdminDTO {
 	public void setEmail(String email) {
 		Email = email;
 	}
-	public AdminDTO(int iD_Admin, String userName, String passWord,
-			String phone, String address, String email) {
-		super();
-		ID_Admin = iD_Admin;
-		UserName = userName;
-		PassWord = passWord;
-		Phone = phone;
-		Address = address;
-		Email = email;
-	}
+	
+	
 	public AdminDTO() {
 		super();
 		// TODO Auto-generated constructor stub
