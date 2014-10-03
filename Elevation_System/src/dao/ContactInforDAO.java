@@ -43,7 +43,7 @@ public class ContactInforDAO {
 					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;ader=sa;password=1234567;");
 			PreparedStatement ps = conn
 					.prepareStatement("UPDATE ContactInfor SET Address=?,Mobiphone=?,TelePhone=?,FAX=?,Email=?,Skype=?,Yahoo=? WHERE ID_ContactInfor=?");
-			ps.setString(1, ad.getUserName());
+			ps.setString(1, cti.getAddress());
 			ps.setString(2, cti.getMobilePhone());
 			ps.setString(3, cti.getTelePhone());
 			ps.setString(4, cti.getFAX());
@@ -90,8 +90,8 @@ public class ContactInforDAO {
 			ResultSet rs = stmt.executeQuery("SELECT * FROM Admin");
 			while (rs.next()) {
 				ContactInforDTO cti = new ContactInforDTO();
-				cti.setID_ContactInfor(rs.getInt("ID_ContactInfor"));
-				cti.set....(rs.getString("Address"));
+				cti.setID_ContactInfo(rs.getInt("ID_ContactInfor"));
+				cti.setAddress(rs.getString("Address"));
 				cti.setMobilePhone(rs.getString("MobiPhone"));
 				cti.setTelePhone(rs.getString("TelePhone"));
 				cti.setFAX(rs.getString("FAX"));
@@ -119,15 +119,14 @@ public class ContactInforDAO {
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
 				
-				cti.setID_ContactInfor(rs.getInt("ID_ContactInfor"));
-				cti.set....(rs.getString("Address"));
+				cti.setID_ContactInfo(rs.getInt("ID_ContactInfor"));
+				cti.setAddress(rs.getString("Address"));
 				cti.setMobilePhone(rs.getString("MobiPhone"));
 				cti.setTelePhone(rs.getString("TelePhone"));
 				cti.setFAX(rs.getString("FAX"));
 				cti.setEmail(rs.getString("Email"));
 				cti.setSkype(rs.getString("Skype"));
 				cti.setYahoo(rs.getString("Yahoo"));
-				
 				
 			}
 		} catch (SQLException | ClassNotFoundException e) {

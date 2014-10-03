@@ -1,11 +1,13 @@
 package dao;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+
 
 
 
@@ -28,8 +30,8 @@ public class OrderDAO {
 			ps.setString(1, od.getRequired());
 			ps.setString(2, od.getType());
 			ps.setString(3, od.getAddress());
-			ps.setDate(4,od.getDateOrder());
-			ps.setboolean(5, od.getStatus());
+			ps.setDate(4,(Date) od.getDateOrder());
+			ps.setBoolean(5, od.isStatus());
 			ps.setString(6,od.getPayment());
 		
 			int kq = ps.executeUpdate();
@@ -51,8 +53,8 @@ public class OrderDAO {
 			ps.setString(1, od.getRequired());
 			ps.setString(2, od.getType());
 			ps.setString(3, od.getAddress());
-			ps.setDate(4,od.getDateOrder());
-			ps.setboolean(5, od.getStatus());
+			ps.setDate(4,(Date) od.getDateOrder());
+			ps.setBoolean(5, od.isStatus());
 			ps.setString(6,od.getPayment());
 
 			int kq = ps.executeUpdate();
@@ -100,7 +102,7 @@ public class OrderDAO {
 				od.setAddress(rs.getString("Address"));
 				od.setType(rs.getString("Type"));
 				od.setDateOrder (rs.getDate("DateOrder"));
-				od.set(rs.getString("Email"));
+				od.setStatus(rs.getBoolean("Status"));
 				od.setPayment(rs.getString("Payment"));
 				listod.add(od);
 			}
@@ -122,16 +124,14 @@ public class OrderDAO {
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
-				
-				OrderDTO od = new OrderDTO();
 				od.setID_Order(rs.getInt("ID_Order"));
 				od.setID_User(rs.getInt("ID_User"));
 				od.setRequired(rs.getString("Required"));
 				od.setAddress(rs.getString("Address"));
 				od.setType(rs.getString("Type"));
 				od.setDateOrder (rs.getDate("DateOrder"));
-				od.set....(rs.getString("Email"));
-				od.setPayment(rs.getString("Payment"));;
+				od.setStatus(rs.getBoolean("Status"));
+				od.setPayment(rs.getString("Payment"));
 				
 				
 			}
