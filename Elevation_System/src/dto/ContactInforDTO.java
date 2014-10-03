@@ -8,6 +8,13 @@ public class ContactInforDTO {
 	private String Email;
 	private String Skype;
 	private String Yahoo;
+	private String Address;
+	public String getAddress() {
+		return Address;
+	}
+	public void setAddress(String address) {
+		Address = address;
+	}
 	public int getID_ContactInfo() {
 		return ID_ContactInfo;
 	}
@@ -50,9 +57,10 @@ public class ContactInforDTO {
 	public void setYahoo(String yahoo) {
 		Yahoo = yahoo;
 	}
+	
 	public ContactInforDTO(int iD_ContactInfo, String mobilePhone,
 			String telePhone, String fAX, String email, String skype,
-			String yahoo) {
+			String yahoo, String address) {
 		super();
 		ID_ContactInfo = iD_ContactInfo;
 		MobilePhone = mobilePhone;
@@ -61,6 +69,7 @@ public class ContactInforDTO {
 		Email = email;
 		Skype = skype;
 		Yahoo = yahoo;
+		Address = address;
 	}
 	public ContactInforDTO() {
 		super();
