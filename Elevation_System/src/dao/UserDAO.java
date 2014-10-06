@@ -13,7 +13,7 @@ import dto.UserDTO;
 
 public class UserDAO {
 	
-	public boolean InsertUser(UserDTO us) {
+	public static boolean InsertUser(UserDTO us) {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
