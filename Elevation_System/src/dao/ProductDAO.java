@@ -61,7 +61,7 @@ public class ProductDAO {
 		return false;
 	}
 
-	public List<ProductDTO> FindAll() {
+	public List<ProductDTO> FindAllProduct() {
 
 		ArrayList<ProductDTO> listproduct = new ArrayList<ProductDTO>();
 

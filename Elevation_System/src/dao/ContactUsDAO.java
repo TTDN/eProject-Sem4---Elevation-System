@@ -35,7 +35,7 @@ public class ContactUsDAO {
 		return false;
 	}
 
-	public List<ContactUsDTO> FindAll(){
+	public List<ContactUsDTO> FindAllContactUs(){
 		
 		ArrayList<ContactUsDTO> listcontactus = new ArrayList<ContactUsDTO>();
 		
