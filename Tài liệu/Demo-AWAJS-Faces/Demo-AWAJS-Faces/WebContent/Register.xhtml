@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Show all</title>
+</h:head>
+<h:body>
+	<h:form>
+			<h:outputLabel value="Ho va ten"></h:outputLabel><h:inputText id="hovaten" value="#{registerBean.sv.hoVaTen}"
+				required="true" requiredMessage="Name is required !"></h:inputText>
+
+			<h:outputLabel value="Lop"></h:outputLabel><h:inputText id="lop" value="#{registerBean.sv.lop}"></h:inputText>
+
+			<h:outputLabel value="Gioi tinh"></h:outputLabel><h:inputText id="gioitinh" value="#{registerBean.sv.gioiTinh}"></h:inputText>
+
+			<h:outputLabel value="Dia chi"></h:outputLabel><h:inputText id="diachi" value="#{registerBean.sv.diaChi}"></h:inputText>
+
+			<h:outputLabel value="CMND"></h:outputLabel><h:inputText id="cmnd" value="#{registerBean.sv.CMND}"></h:inputText>
+
+			<h:outputLabel value="SDT"></h:outputLabel><h:inputText id="sdt" value="#{registerBean.sv.SDT}"></h:inputText>
+
+			<h:commandButton action="#{registerBean.register}" value="register"></h:commandButton>
+	</h:form>
+</h:body>
+</html>

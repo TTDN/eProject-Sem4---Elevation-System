@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Insert title here</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:messages style="color:red;margin:8px"></h:messages>
+		<h:outputLabel>Username :</h:outputLabel>
+		<h:inputText value="#{admin.ad.username}" />
+
+		<h:outputLabel>Password :</h:outputLabel>
+		<h:inputText value="#{admin.ad.password}" />
+
+		<h:outputLabel>Phone :</h:outputLabel>
+		<h:inputText value="#{admin.ad.phone}" />
+		<h:outputLabel>Ngay Sinh</h:outputLabel>
+		<h:inputText value="#{admin.ad.ngaysinh}">
+			<f:convertDateTime pattern="d/M/yyyy" />
+		</h:inputText>
+		<h:outputLabel>Email :</h:outputLabel>
+		<h:inputText value="#{admin.ad.email}" />
+
+		<h:outputLabel>Dia Chi :</h:outputLabel>
+		<h:inputText value="#{admin.ad.diachi}" />
+
+		<h:commandButton action="#{admin.insertAD}" value="Add admin" />
+	</h:form>
+	<h:form>
+		<h:dataTable id="table1" value="#{admin.listadAdmins}" var="x"
+			border="1">
+			<f:facet name="header">
+				<h:outputText value="Danh Sach Admin" />
+			</f:facet>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="IDUSER" />
+				</f:facet>
+				<h:outputText value="#{x.iduser}"
+					rendered="#{!admin.isEditingAdmin(x)}" />
+				<h:inputText value="#{x.iduser}"
+					rendered="#{admin.isEditingAdmin(x)}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="USERNAME" />
+				</f:facet>
+				<h:outputText value="#{x.username}"
+					rendered="#{!admin.isEditingAdmin(x)}" />
+				<h:inputText value="#{x.username}"
+					rendered="#{admin.isEditingAdmin(x)}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="PASSWORD" />
+				</f:facet>
+				<h:outputText value="#{x.password}"
+					rendered="#{!admin.isEditingAdmin(x)}" />
+				<h:inputText value="#{x.password}"
+					rendered="#{admin.isEditingAdmin(x)}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="PHONE" />
+				</f:facet>
+				<h:outputText value="#{x.phone}"
+					rendered="#{!admin.isEditingAdmin(x)}" />
+				<h:inputText value="#{x.phone}"
+					rendered="#{admin.isEditingAdmin(x)}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="NGAY SINH" />
+				</f:facet>
+				<h:outputText value="#{x.ngaysinh}"
+					rendered="#{!admin.isEditingAdmin(x)}" />
+				<h:inputText value="#{x.ngaysinh}"
+					rendered="#{admin.isEditingAdmin(x)}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="EMAIL" />
+				</f:facet>
+				<h:outputText value="#{x.email}"
+					rendered="#{!admin.isEditingAdmin(x)}" />
+				<h:inputText value="#{x.email}"
+					rendered="#{admin.isEditingAdmin(x)}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="DIA CHI" />
+				</f:facet>
+				<h:outputText value="#{x.diachi}"
+					rendered="#{!admin.isEditingAdmin(x)}" />
+				<h:inputText value="#{x.diachi}"
+					rendered="#{admin.isEditingAdmin(x)}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value                                                                                                                                                                                                      ="ACTION" />
+				</f:facet>
+				<h:commandLink value="Delete" action="#{admin.deleteAD(x)}"
+					rendered="#{not admin.editMode}" />
+				<h:commandLink style="margin-left: 20px;" value="Edit"
+					action="#{admin.switchToEditMode(x)}"
+					rendered="#{not admin.editMode}" />
+				<h:commandLink value="Save" action="#{admin.save(x)}"
+					rendered="#{admin.editMode}" />
+			</h:column>
+		</h:dataTable>
+	</h:form>
+</h:body>
+</html>

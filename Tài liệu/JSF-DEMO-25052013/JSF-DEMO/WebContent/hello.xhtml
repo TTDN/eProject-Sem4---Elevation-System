@@ -1,0 +1,22 @@
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>JSF Hello World</title>
+    </h:head>
+    <h:body>
+        #{hello.world}
+    
+    
+    WELCOME <h:outputLabel rendered="#{loginBean.authenticatedSuccess}">
+			<h:outputText value="#{loginBean.username}"/>
+		</h:outputLabel>
+		
+		<h:outputLabel rendered="#{!loginBean.authenticatedSuccess}">
+			GUEST
+		</h:outputLabel>
+		
+		
+		SỐ NGƯỜI ĐANG ONLINE LÀ: <h:outputText value="#{b.onlineCount}"/>
+		</h:body>
+</html>

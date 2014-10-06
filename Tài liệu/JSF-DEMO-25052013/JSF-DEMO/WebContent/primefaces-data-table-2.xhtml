@@ -1,0 +1,45 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head />
+<h:body>
+	<h:form>
+
+		<p:dataTable value="#{d.dataModel}" var="product" paginator="true"
+			lazy="true"
+			rows="5"
+			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+			rowsPerPageTemplate="5,10,15">
+			<f:facet name="header">
+			List of PRODUCTS
+			</f:facet>
+
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="ID" />
+				</f:facet>
+				<h:outputText value="#{product.id}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="NAME" />
+				</f:facet>
+				<h:outputText value="#{product.name}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="PRICE" />
+				</f:facet>
+				<h:outputText value="#{product.price}" />
+			</p:column>
+			
+			<f:facet name="footer">
+			In total there are #{c.size} products.
+			</f:facet>
+		</p:dataTable>
+
+	</h:form>
+</h:body>
+</html>

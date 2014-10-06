@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<package name="basicstruts2" namespace="/" extends="struts-default">
+		<action name="registeradmin" class="bo.adminBO" method="insertMB">
+			<result name="success">
+				/thanhcong.jsp
+			</result>
+			<result name="input">/dangkiAdmin.jsp
+			</result>
+		</action>
+		<action name="adddanhmuc" class="bo.danhmucBO" method="insertDM">
+			<result name="success">
+				/thanhcong.jsp
+			</result>
+			<result name="input">/insertdanhmuc.jsp
+			</result>
+		</action>
+		<action name="showadmimm" class="bo.adminShowBO" method="listadmin">
+			<result name="success">
+				/showadmin.jsp
+			</result>
+		</action>
+		<action name="updateAD" class="bo.adminShowBO" method="getadmin">
+			<result name="success">
+				/updateadmin.jsp
+			</result>
+		</action>
+		<action name="deleteAD" class="bo.adminShowBO" method="deleteuserAD">
+			<result name="success">
+				/thanhcong.jsp
+			</result>
+		</action>
+		<action name="upadmin" class="bo.adminBO" method="updateadmin">
+			<result name="success">/thanhcong.jsp</result>
+			<result name="error">/updateadmin.jsp</result>
+			<result name="input">/updateadmin.jsp</result>
+		</action>
+		<action name="showDM" class="bo.danhmucshowBO" method="selectDM">
+			<result name="success">
+				/showDM.jsp
+			</result>
+		</action>
+		<action name="upDM" class="bo.danhmucshowBO" method="getDM">
+			<result name="success">
+				/updatedanhmuc.jsp
+			</result>
+		</action>
+		<action name="deDM" class="bo.danhmucshowBO" method="deleteDM">
+			<result name="success">
+				/thanhcong.jsp
+			</result>
+			<result name="error" type="chain">showDM</result>
+		</action>
+		<action name="UppDM" class="bo.danhmucBO" method="updateDM">
+			<result name="success">
+				/thanhcong.jsp
+			</result>
+		</action>
+		<action name="inHD" class="bo.hoadonBO" method="insertHD">
+			<result name="success">
+				/thanhcong.jsp
+			</result>
+			<result name="input">/inserthoadon.jsp
+			</result>
+		</action>
+		<action name="showHD" class="bo.hoadonshowBO" method="selectHD">
+			<result name="success">
+				/showHD.jsp
+			</result>
+		</action>
+		<action name="upHD" class="bo.hoadonshowBO" method="getHD">
+			<result name="success">
+				/updatehoadon.jsp
+			</result>
+		</action>
+		<action name="deHD" class="bo.hoadonshowBO" method="deleteHD">
+			<result name="success">
+				/thanhcong.jsp
+			</result>
+		</action>
+		<action name="inSP" class="bo.sanphamBO" method="insertSP">
+			<result name="success">
+				/thanhcong.jsp
+			</result>
+			<result name="input">/insertsanpham.jsp
+			</result>
+		</action>
+		<action name="upSP" class="bo.sanphamshowBO" method="getSP">
+			<result name="success">
+				/updatesanpham.jsp
+			</result>
+		</action>
+		<action name="UppSP" class="bo.sanphamBO" method="updateSP">
+			<result name="success">
+				/thanhcong.jsp
+			</result>
+		</action>
+		<action name="seSP" class="bo.sanphamshowBO" method="insertSP">
+			<result name="success">
+				/showSP.jsp
+			</result>
+		</action>
+		<action name="deSP" class="bo.sanphamshowBO" method="deleteSP">
+			<result name="success">
+				/thanhcong.jsp
+			</result>
+		</action>
+		<action name="inCTHD" class="bo.cthoadonBO" method="insertCTHD">
+			<result name="success">
+				/thanhcong.jsp
+			</result>
+			<result name="input">
+				/insertcthoadon.jsp
+			</result>
+		</action>
+		<action name="seCTHD" class="bo.cthoadonshow" method="selectCTHD">
+			<result name="success">
+				/showCTHD.jsp
+			</result>
+		</action>
+		<action name="upCTHD" class="bo.cthoadonshow" method="getCTHD">
+			<result name="success">
+				/updateCTHD.jsp
+			</result>
+		</action>
+		<action name="uppCTHD" class="bo.cthoadonBO" method="upCTHD">
+			<result name="success" type="chain">
+				seCTHD
+			</result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,27 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+	</h:head>
+	
+	<h:body>
+	<h:form>
+		<p:calendar id="c1" mode="inline"  /> <br/><br/>
+		
+		<p:calendar mode="popup" /> <br/><br/>
+		
+		<p:calendar mode="popup" showOn="button" /> <br/><br/>
+		
+		
+		 <p:selectOneMenu value="#{preferences.themes}">
+            <f:selectItem itemLabel="Select One" itemValue="" />
+            <f:selectItem itemLabel="AfterDark" itemValue="afterdark" />
+            <f:selectItem itemLabel="BlueSkye" itemValue="bluesky" />
+            <f:selectItem itemLabel="Option 3" itemValue="3" />
+        </p:selectOneMenu>
+         <p:commandButton value="Submit" action="#{preferences.switchTheme}"/>
+    </h:form>
+	</h:body>
+</html>

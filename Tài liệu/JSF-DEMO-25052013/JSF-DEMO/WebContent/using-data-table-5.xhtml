@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+
+<style>
+body {text-align: center !important;}
+
+table {margin: 40px;}
+table tr th[colspan='4'] {background-color: blue; padding: 12px 7px !important;color: white; }
+table tr th  {background-color: #BDBDBD; padding: 12px 7px !important;color: black; width: 175px; }
+table  tr td {padding: 5px 15px;}
+table  tr td a {display: inline-block; margin: 3px 5px;}
+
+#AddProductDiv {margin: 40px; padding: 30px; width: 260px; 
+border: 1px solid #BDBDBD; border-radius: 10px;}
+#AddProductDiv form label {width: 100px; display: inline-block;}
+</style>
+</h:head>
+<body>
+<center>
+<h:form>
+<h:dataTable id="table1" value="#{a.productList}" var="x"
+             border="1">   
+    <f:facet name="header">
+        <h:outputText value="DANH SÁCH SẢN PHẨM" />
+    </f:facet>
+    
+    <h:column>       
+    	<f:facet name="header">
+            <h:outputText value="ID" />
+        </f:facet>
+        <h:outputText value="#{x.id}"  rendered="#{!a.isEditingProduct(x)}"/>        
+        <h:inputText value="#{x.id}"  rendered="#{a.isEditingProduct(x)}"/>
+    </h:column>
+    
+    <h:column>      
+    	<f:facet name="header">
+            <h:outputText value="NAME" />
+        </f:facet>
+        <h:outputText value="#{x.name}"  rendered="#{!a.isEditingProduct(x)}"/>
+        <h:inputText value="#{x.name}"  rendered="#{a.isEditingProduct(x)}"/>
+    </h:column>  
+    <h:column>      
+    	<f:facet name="header">
+            <h:outputText value="PRICE" />
+        </f:facet>
+        <h:outputText value="#{x.price}"  rendered="#{!a.isEditingProduct(x)}"/>
+        <h:inputText value="#{x.price}"  rendered="#{a.isEditingProduct(x)}"/>
+    </h:column>  
+    
+    <h:column> 
+		<f:facet name="header">Action</f:facet>		
+			<h:commandLink value="Delete" action="#{a.deleteProduct(x)}"  
+												rendered="#{(not a.editMode) or not(a.isEditingProduct(x))}" />
+			<h:commandLink value="Edit" action="#{a.switchToEditMode(x)}" 
+												rendered="#{(not a.editMode) or not(a.isEditingProduct(x))}" />
+			<h:commandLink value="Save" action="#{a.save(x)}" 
+												rendered="#{a.editMode and a.isEditingProduct(x)}" />
+	</h:column>
+	
+</h:dataTable>
+</h:form>
+
+<div id="AddProductDiv">
+	<label>ADD RPODUCT FORM</label>
+       <h:form>
+        	<h:messages style="color:red;margin:8px;" /><br/>
+        	<br/><br/>
+        	
+        	<h:outputLabel>ID: </h:outputLabel>
+        	
+        	<h:inputText id="id" name="id" value="#{a.addingProduct.id}"
+        		validatorMessage="ID must be great than 1">
+        		<f:validateLongRange minimum="1" />
+        	</h:inputText>
+        	
+        	<br/><br/>
+        	
+        	<h:outputLabel>NAME:</h:outputLabel>
+        	
+        	<h:inputText id="name" name="name" value="#{a.addingProduct.name}" 
+        				validatorMessage="NAME must have at least 2 characters and at most 10 characters">
+        		<f:validateLength minimum="2" maximum="10" />
+        	</h:inputText>
+        	
+        	<br/><br/>
+        	
+       		<h:outputLabel>PRICE:</h:outputLabel>    
+       		   		
+        	<h:inputText id="price" name="price" value="#{a.addingProduct.price}"
+        		validatorMessage="PRICE must be greater than 5 and less than 10.">       		
+        		<f:validateBean/>     
+        	</h:inputText> 
+        	
+        	
+       		<br/><br/>       	
+        	
+        	<h:commandButton action="#{a.addProduct}" value="ADD PRODUCT" />
+        </h:form>        
+</div>
+
+<!-- backing"WebContent/using-data-table-3.xhtml" bean: A -->
+</center>
+</body>
+</html>

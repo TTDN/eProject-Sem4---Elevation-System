@@ -1,0 +1,29 @@
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>JSF REGISTER FORM DEMO</title>
+    </h:head>
+    <h:body>
+        <h:form>
+        	<h:messages style="color:red;margin:8px;" /><br/>
+        	
+        	<h:outputLabel>Name: </h:outputLabel>
+        	<h:inputText id="name" name="name" value="#{registerBean.user.name}" 
+        		required="true"	requiredMessage="Name is required !"/>
+        	
+        	<h:outputLabel>Address:</h:outputLabel>
+        	<h:inputText id="address" name="address" value="#{registerBean.user.address}"/>
+        		
+       		<h:outputLabel>Email:</h:outputLabel>
+        	<h:inputText id="email" name="email" value="#{registerBean.user.email}"/>
+        		
+       		<h:outputLabel>Phone:</h:outputLabel>
+        	<h:inputText id="phone" name="phone" value="#{registerBean.user.phone}"/>        	
+        	
+        	<h:commandButton action="#{registerBean.register}" value="Register" />
+        </h:form>        
+    </h:body>
+</html>

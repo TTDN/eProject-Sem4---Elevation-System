@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14040479269180" configfile="/Demo-AWAJS-Faces/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="Register.xhtml" id="pf14040978895210" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf14040978895211" path="/Register.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="register-success.xhtml" id="pf14040978895212" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf14040978895211" path="/register-success.xhtml"/>
+  <links id="pf14040978895211" target="pf14040978895212" source="pf14040978895210" outcome="success"/>
+</pageflow:Pageflow>

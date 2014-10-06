@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+	<field name="ad.username">
+		<field-validator type="requiredstring">
+			<message>You must enter a value for bar. </message>
+		</field-validator>
+	</field>
+	<field name="ad.password">
+		<field-validator type="requiredstring">
+			<message>You must enter a value for bar. </message>
+		</field-validator>
+	</field>
+	<field name="ad.phone">
+		<field-validator type="required">
+			<message>You must enter a value for bar.</message>
+		</field-validator>
+	</field>
+	<field name="ad.ngaysinh">
+		<field-validator type="required">
+			<message>You must enter a value for bar.</message>
+		</field-validator>
+		<field-validator type="date">
+			<param name="min">12/22/1940</param>
+			<param name="max">12/25/2014</param>
+			<message>The date must be between 12/22/1940 and 12/25/2014.
+			</message>
+		</field-validator>
+	</field>
+	<field name="ad.email">
+		<field-validator type="required">
+			<message>You cannot leave the email address field empty.</message>
+		</field-validator>
+		<field-validator type="email">
+			<message>The email address you entered is not valid.</message>
+		</field-validator>
+	</field>
+	<field name="ad.diachi">
+		<field-validator type="requiredstring">
+			<message>You must enter a value for bar. </message>
+		</field-validator>
+	</field>
+</validators>

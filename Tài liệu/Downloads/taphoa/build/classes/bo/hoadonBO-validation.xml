@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+	<field name="hd.idct">
+		<field-validator type="required">
+			<message>You must enter a value for bar. </message>
+		</field-validator>
+	</field>
+	<field name="hd.ngay">
+		<field-validator type="required">
+			<message>You must enter a value for bar. </message>
+		</field-validator>
+	</field>
+	<field name="hd.tongtien">
+		<field-validator type="required">
+			<message>You must enter a value for bar. </message>
+		</field-validator>
+	</field>
+</validators>

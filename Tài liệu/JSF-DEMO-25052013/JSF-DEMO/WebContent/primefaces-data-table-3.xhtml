@@ -1,0 +1,76 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<style>
+body {
+	text-align: center;
+}
+
+.productList {
+	width: 500px;
+	font-size: 10px;
+	margin: 40px;
+}
+
+.column {
+	font-size: 10px;
+}
+</style>
+</h:head>
+<h:body>
+	<h:form>
+	
+		
+		<p:ajax event="rowEdit" listener="#{c.onEdit}" update=":form:messages" />  
+        <p:ajax event="rowEditCancel" listener="#{c.onCancel}" update=":form:messages" /> 
+        
+		<p:dataTable value="#{c.productList}" var="product" editable="true"
+			styleClass="productList">
+			<f:facet name="header">
+			 PRODUCTS
+			</f:facet>
+			<p:column headerText="ID" styleClass="column">
+				<p:cellEditor>
+					<f:facet name="output">
+						<h:outputText value="#{product.id}" />
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText value="#{product.id}" />
+					</f:facet>
+				</p:cellEditor>
+			</p:column>
+			<p:column headerText="NAME" styleClass="column">
+				<p:cellEditor>
+					<f:facet name="output">
+						<h:outputText value="#{product.name}" />
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText value="#{product.name}" />
+					</f:facet>
+				</p:cellEditor>
+			</p:column>
+			<p:column headerText="PRICE" styleClass="column">
+				<p:cellEditor>
+					<f:facet name="output">
+						<h:outputText value="#{product.price}" />
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText value="#{product.price}" />
+					</f:facet>
+				</p:cellEditor>
+			</p:column>
+			
+			<p:column style="width:10%">
+				<p:rowEditor />
+			</p:column>
+			<f:facet name="footer">
+			In total there are #{c.size} products.
+			</f:facet>
+		</p:dataTable>
+
+	</h:form>
+</h:body>
+</html>

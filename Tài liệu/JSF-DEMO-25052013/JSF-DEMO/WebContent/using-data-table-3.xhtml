@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head/>
+<body>
+
+WELCOME <h:outputLabel rendered="#{loginBean.authenticatedSuccess}">
+			<h:outputText value="#{loginBean.username}"/>
+		</h:outputLabel>
+		
+		<h:outputLabel rendered="#{!loginBean.authenticatedSuccess}">
+			GUEST
+		</h:outputLabel>
+
+SỐ NGƯỜI ĐANG ONLINE LÀ: <h:outputText value="#{b.onlineCount}"/>
+<h:dataTable id="table1" value="#{a.productList}" var="x"
+             border="1">   
+    <f:facet name="header">
+        <h:outputText value="DANH SÁCH SẢN PHẨM" />
+    </f:facet>
+    <h:column>       
+    	<f:facet name="header">
+            <h:outputText value="ID" />
+        </f:facet>
+        <h:outputText value="#{x.id}" />
+    </h:column>
+    <h:column>      
+    	<f:facet name="header">
+            <h:outputText value="NAME" />
+        </f:facet>
+        <h:outputText value="#{x.name}" />
+    </h:column>  
+    <h:column>      
+    	<f:facet name="header">
+            <h:outputText value="PRICE" />
+        </f:facet>
+        <h:outputText value="#{x.price}" />
+    </h:column>  
+    
+    <h:column> 
+		<f:facet name="header">Action</f:facet>
+		<h:form>
+			<h:commandLink value="Delete" action="#{a.deleteProduct(x)}" />
+		</h:form>
+	</h:column>
+	
+</h:dataTable>
+
+
+<div id="AddProductDiv">
+	<label>ADD RPODUCT FORM</label>
+       <h:form>
+        	<h:messages style="color:red;margin:8px;" /><br/>
+        	
+        	<h:outputLabel>ID: </h:outputLabel>
+        	<h:inputText id="name" name="name" value="#{a.addingProduct.id}" />
+        	
+        	<h:outputLabel>NAME:</h:outputLabel>
+        	<h:inputText id="address" name="address" value="#{a.addingProduct.name}"/>
+        		
+       		<h:outputLabel>PRICE:</h:outputLabel>
+        	<h:inputText id="email" name="email" value="#{a.addingProduct.price}"/>       		
+       		       	
+        	
+        	<h:commandButton action="#{a.addProduct}" value="ADD PRODUCT" />
+        </h:form>        
+</div>
+
+<!-- backing"WebContent/using-data-table-3.xhtml" bean: A -->
+</body>
+</html>
