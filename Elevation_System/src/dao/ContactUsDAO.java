@@ -17,7 +17,7 @@ public class ContactUsDAO {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
-					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;ader=sa;password=1234567;");
+					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;user=sa;password=1234567;");
 			PreparedStatement ps = conn
 					.prepareStatement("INSERT INTO ContactUs (Name,Talephone,CompanyName,Contents) VALUES(?,?,?,?)");
 			ps.setString(1, cu.getName());
@@ -35,7 +35,7 @@ public class ContactUsDAO {
 		return false;
 	}
 
-	public List<ContactUsDTO> FindAllContactUs(){
+	public List<ContactUsDTO> FindAll(){
 		
 		ArrayList<ContactUsDTO> listcontactus = new ArrayList<ContactUsDTO>();
 		

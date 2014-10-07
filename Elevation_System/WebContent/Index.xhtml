@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <body>
+        <ui:composition template="./MasterPage.xhtml">
+            <ui:define name="content">
+                <section id="slide-show">
+                    <div id="slider" class="sl-slider-wrapper">
+                        <!--Slider Items-->
+                        <div class="sl-slider">
+                            <!--Slider Item1-->
+                            <div class="sl-slide item1" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
+                                <div class="sl-slide-inner">
+                                    <div class="container">
+                                        <h:graphicImage library="images" name="sample\slider\Slide-1.jpg" class="pull-right img_slide" />
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/Slider Item1-->
+                            <!--Slider Item2-->
+                            <div class="sl-slide item2" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
+                                <div class="sl-slide-inner">
+                                    <div class="container">
+                                        <h:graphicImage library="images" name="sample\slider\slide-3.jpg" class="pull-right img_slide" />
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Slider Item2-->
+
+                            <!--Slider Item3-->
+                            <div class="sl-slide item3" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
+                                <div class="sl-slide-inner">
+                                    <div class="container">
+                                         <h:graphicImage library="images" name="sample\slider\slide-2.jpg" class="pull-right img_slide" />
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Slider Item3-->
+                        </div>
+                    </div>
+                </section>
+                <br></br>
+                <section id="Section1" class="container main">
+                    <div class="row-fluid">
+                        <div class="span6">
+                            <h:graphicImage library="images" name="sample/ElevatorLogo.jpg" />
+                            <h3>Giới thiệu công ty</h3>
+                            <h6>
+                                Chúng tôi là đơn vị chuyên: Sản xuất - cung cấp - lắp đặt - bảo trì…thang máy, thang cuốn, thiết bị nâng với nhà máy sản xuất được trang bị máy móc hiện đại, đội ngũ quản lý sản xuất giàu kinh nghiệm trên 15 năm trong nghành thang máy và các văn phòng giao dịch bán hàng, bảo trì sửa chữa trên cả nước, chúng tôi hòa nhập với thị trường bằng hai dòng sản phẩm chủ đạo là:
+                                Thang máy tải khách: Dùng cho văn phòng, chung cư, khách sạn, nhà cao tầng.
+                                Thang máy gia đình: Dùng cho nhà biệt thự, nhà phố, nhà ống và nhà cải tạo.
+                            </h6>
+                        </div>
+                        <div class="span6">
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <h3>Dịch vụ bảo trì</h3>
+                            <div class="accordion" id="accordion2">
+                                <div class="accordion-group">
+                                    <div class="accordion-heading">
+                                        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                                            Bảo trì thang máy
+                                        </a>
+                                    </div>
+                                    <div id="collapseOne" class="accordion-body collapse">
+                                        <div class="accordion-inner">
+                                            <h6>Bảo trì thang máy là dịch vụ bảo dưỡng kỹ thuật định kỳ để duy trì hoạt động liên tục của thang máy nhằm phát hiện sớm và ngăn chặn kịp thời những sự cố hỏng hóc có thể xảy ra.</h6>
+                                            Theo quy định tiêu chuẩn Việt Nam TCVN:6395,6396,6397:1998 yêu cầu an toàn sử dụng thang máy như sau:
+                                            -     Thang máy chỉ được phép đưa vào hoạt động khi trạng thái kỹ thuật tốt và được cấp giấy chứng nhận an toàn, phải tuân thủ nghiêm ngặt các quy định an toàn về sử dụng thang máy.
+                                            -     Thang máy sử dụng sau khi hết thời gian bảo hành phải được bảo trì thường xuyên, không quá 02 tháng một lần.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-group">
+                                    <div class="accordion-heading">
+                                        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                                            Nâng cấp thang máy
+                                        </a>
+                                    </div>
+                                    <div id="collapseTwo" class="accordion-body collapse">
+                                        <div class="accordion-inner">
+                                            <h6> INVETECH có thể giúp quý khách hàng duy trì tính phù hợp, cạnh tranh của tòa nhà bằng cách tận dụng tối đa khả năng vận chuyển của hệ thống thang máy. Chúng tôi cung cấp dịch vụ nâng cấp và cải tiến hệ thống thang máy của tòa nhà, khiến cho chúng luôn hiện đại về mặt kỹ thuật cũng như trang trí nội thất.</h6>
+                                            Các chuyên gia của INVETECH cung cấp dịch vụ tư vấn miễn phí để đánh giá yêu cầu của hệ thống lưu thông trong tòa nhà của quý khách hàng cũng như đề xuất các giải pháp để nâng cấp hoạt động của tòa nhà..
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-group">
+                                    <div class="accordion-heading">
+                                        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+                                            Bảo dưỡng sản phẩm
+                                        </a>
+                                    </div>
+                                    <div id="collapseThree" class="accordion-body collapse">
+                                        <div class="accordion-inner">
+                                            <h6>Dịch vụ bảo dưỡng, bảo trì hệ thống điều hoà không khí trung tâm định kỳ (bảo dưỡng điều hoà trung tâm) nhằm phát hiện và ngăn chặn sớm những sự cố hỏng hóc có thể xảy ra, giúp thiết bị có thể duy trì được trạng thái hoạt động tốt, kéo dài tuổi thọ.</h6>
+
+                                            Tùy theo điều kiện hoạt động nhưng nhà sản xuất khuyến cáo nên làm vệ sinh công nghiệp cho thiết bị định kỳ từ 2 lần/ 1 năm trở lên đối với các công trình trung tâm thương mại và tòa nhà văn phòng.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="about-us" class="container main">
+                    <hr />
+                    <h1 class="center">Product</h1>      
+                    <div class="row-fluid">
+                        <div class="span3">
+                            <h:form>
+                                <div class="box">
+                                    <p> <h:graphicImage library="images" name="sample/team1.jpg"/></p>                   
+                                    <h:outputLabel id="s1" for="username" value="s" style="color:black;font-size:25px"/>
+                                    <h:outputLabel id="s2" for="username" value="sssss" />                     
+                                    <h:commandButton value=" Detail " type="submit" class="btn btn-info" style="margin-left: 170px"/>
+                                </div>
+                            </h:form>
+                        </div>
+                    </div>
+                    <hr></hr>
+                </section>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

@@ -17,7 +17,7 @@ public class ProductDAO {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
-					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;ader=sa;password=1234567;");
+					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;user=sa;password=1234567;");
 			PreparedStatement ps = conn
 					.prepareStatement("INSERT INTO ProductDAO (ID_Type,Name,Images,Description,Status,Contents) VALUES(?,?,?,?,?,?)");
 			ps.setInt(1, p.getID_Type());
@@ -61,7 +61,7 @@ public class ProductDAO {
 		return false;
 	}
 
-	public List<ProductDTO> FindAllProduct() {
+	public List<ProductDTO> FindAll() {
 
 		ArrayList<ProductDTO> listproduct = new ArrayList<ProductDTO>();
 

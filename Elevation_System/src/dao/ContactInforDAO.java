@@ -16,7 +16,7 @@ public class ContactInforDAO {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
-					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;ader=sa;password=1234567;");
+					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;user=sa;password=1234567;");
 			PreparedStatement ps = conn
 					.prepareStatement("INSERT INTO ContactInfor (Address,MobiPhone,TelePhone,FAX,Email,Skype,Yahoo) VALUES(?,?,?,?,?,?,?)");
 			

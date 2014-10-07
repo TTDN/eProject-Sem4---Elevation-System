@@ -12,21 +12,22 @@ import dao.UserDAO;
 public class UserBean {
 	public static final long serialVersionUID = 1L;
 	private UserDTO us= new UserDTO();
-	private List<UserDAO> listUser;
+	private List<UserDTO> listUser;
 	public UserDTO getUs() {
 		return us;
 	}
 	public void setUs(UserDTO us) {
 		this.us = us;
 	}
-	public List<UserDAO> getListUser() {
+	public List<UserDTO> getListUser() {
 		return listUser;
 	}
-	public void setListUser(List<UserDAO> listUser) {
+	public void setListUser(List<UserDTO> listUser) {
 		this.listUser = listUser;
 	}
 	public UserBean() {
-		super();
+		UserDAO user= new UserDAO();
+		listUser = user.findallUserDTO();
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -36,6 +37,7 @@ public class UserBean {
 
 		return "register-success?faces-redirect=true";
 	}
+	
 	
 //	public String update() throws ClassNotFoundException, SQLException {
 //		UserDAO.update(us);

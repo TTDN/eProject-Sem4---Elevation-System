@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <body>
+        <ui:composition template="./MasterPage.xhtml">
+
+            <ui:define name="content">
+                <section id="about-us" class="container main">
+                    <hr />
+                    <h1 class="center">Product</h1>      
+                    <div class="row-fluid">
+                             <div class="span3">
+                            <h:form>
+                                <div class="box">
+                                    <p> <h:graphicImage library="images" name="sample/team1.jpg"/></p>                   
+                                    <h:outputLabel id="s1" for="username" value="s" style="color:black;font-size:25px"/>
+                                    <h:outputLabel id="s2" for="username" value="sssss" />                     
+                                    <h:commandButton value=" Detail " type="submit" class="btn btn-info" style="margin-left: 170px"/>
+                                </div>
+                            </h:form>
+                        </div>
+                    </div>
+                    <hr></hr>
+                </section>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

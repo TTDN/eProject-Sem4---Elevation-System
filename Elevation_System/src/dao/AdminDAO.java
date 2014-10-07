@@ -11,11 +11,11 @@ import dto.AdminDTO;
 
 
 public class AdminDAO {
-	public boolean InsertAdmin(AdminDTO ad) {
+	public static boolean InsertAdmin(AdminDTO ad) {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
-					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;ader=sa;password=1234567;");
+					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;user=sa;password=1234567;");
 			PreparedStatement ps = conn
 					.prepareStatement("INSERT INTO Admin (UserName,PassWord,FullName,Phone,Email,Address) VALUES(?,?,?,?,?,?)");
 			ps.setString(1, ad.getUserName());
