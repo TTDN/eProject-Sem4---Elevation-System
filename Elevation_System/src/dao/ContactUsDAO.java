@@ -12,14 +12,14 @@ import dto.ContactUsDTO;
 
 public class ContactUsDAO {
 
-	public boolean InsertContactUs(ContactUsDTO cu) {
+	public static boolean InsertContactUs(ContactUsDTO cu) {
 
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
 					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;user=sa;password=1234567;");
 			PreparedStatement ps = conn
-					.prepareStatement("INSERT INTO ContactUs (Name,Talephone,CompanyName,Contents) VALUES(?,?,?,?)");
+					.prepareStatement("INSERT INTO ContactUs (Name,Telephone,CompanyName,Contents) VALUES(?,?,?,?)");
 			ps.setString(1, cu.getName());
 			ps.setString(2, cu.getTelephone());
 			ps.setString(3, cu.getCompanyName());
