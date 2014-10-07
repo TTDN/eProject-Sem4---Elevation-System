@@ -1,4 +1,5 @@
 package dao;
+
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -8,31 +9,30 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-
-
-
-
-
-
-import dto.ContactInforDTO;
 import dto.OrderDTO;;
 
 public class OrderDAO {
-	public boolean InsertOrder (OrderDTO od) {
-		
-		
+	
+	public boolean InsertOrder (OrderDTO o) {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
-					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;user=sa;password=1234567;");
+					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;ader=sa;password=1234567;");
 			PreparedStatement ps = conn
-					.prepareStatement("INSERT INTO Order (Required,Type,Address,DateOrder,Status,PayMent) VALUES(?,?,?,?,?,?)");
-			ps.setString(1, od.getRequired());
-			ps.setString(2, od.getType());
-			ps.setString(3, od.getAddress());
-			ps.setDate(4,(Date) od.getDateOrder());
-			ps.setBoolean(5, od.isStatus());
-			ps.setString(6,od.getPayment());
+					.prepareStatement("INSERT INTO Order (ID_User,ProductName,FloorNumber,Speed,HoleSize,FullName,Address,Email,Telephone,DateOrder,Status,Cost,Payment) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)");
+			ps.setInt(1, o.getID_User());
+			ps.setString(2, o.getProductName());
+			ps.setString(3, o.getFloorNumber());
+			ps.setString(4, o.getSpeed());
+			ps.setString(5, o.getHoleSize());
+			ps.setString(6, o.getFullName());
+			ps.setString(7, o.getAddress());
+			ps.setString(8, o.getEmail());
+			ps.setString(9, o.getTelephone());
+			ps.setDate(10, (Date) o.getDateOrder());
+			ps.setBoolean(11, o.getStatus());
+			ps.setInt(12, o.getCost());
+			ps.setString(13, o.getPayment());
 		
 			int kq = ps.executeUpdate();
 			if (kq == 1) {
@@ -43,19 +43,27 @@ public class OrderDAO {
 		}
 		return false;
 	}
-	public boolean updateOrder(OrderDTO od) {
+	
+	public boolean UpdateOrder(OrderDTO o) {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
 					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;ader=sa;password=1234567;");
 			PreparedStatement ps = conn
-					.prepareStatement("UPDATE Order SET Required=?,Type=?,Address=?,DateOrder=?,Status=?,PayMent=? WHERE ID_Oder=?");
-			ps.setString(1, od.getRequired());
-			ps.setString(2, od.getType());
-			ps.setString(3, od.getAddress());
-			ps.setDate(4,(Date) od.getDateOrder());
-			ps.setBoolean(5, od.isStatus());
-			ps.setString(6,od.getPayment());
+					.prepareStatement("UPDATE Order SET ID_User=?,ProductName=?,FloorNumber=?,Speed=?,HoleSize=?,FullName=?,Address=?,Email=?,Telephone=?,DateOrder=?,Status=?,Cost=?,Payment=? WHERE ID_Oder=?");
+			ps.setInt(1, o.getID_User());
+			ps.setString(2, o.getProductName());
+			ps.setString(3, o.getFloorNumber());
+			ps.setString(4, o.getSpeed());
+			ps.setString(5, o.getHoleSize());
+			ps.setString(6, o.getFullName());
+			ps.setString(7, o.getAddress());
+			ps.setString(8, o.getEmail());
+			ps.setString(9, o.getTelephone());
+			ps.setDate(10, (Date) o.getDateOrder());
+			ps.setBoolean(11, o.getStatus());
+			ps.setInt(12, o.getCost());
+			ps.setString(13, o.getPayment());
 
 			int kq = ps.executeUpdate();
 			if (kq == 1) {
@@ -67,7 +75,7 @@ public class OrderDAO {
 		return false;
 	}
 	
-	public boolean deleteOrder(int id) {
+	public boolean DeleteOrder(int id) {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
@@ -86,8 +94,8 @@ public class OrderDAO {
 		return false;
 	}
 	
-	public ArrayList<OrderDTO> findallOrder() {
-		ArrayList<OrderDTO> listod = new ArrayList<OrderDTO>();
+	public ArrayList<OrderDTO> FindAllOrder() {
+		ArrayList<OrderDTO> listo = new ArrayList<OrderDTO>();
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
@@ -95,26 +103,33 @@ public class OrderDAO {
 			Statement stmt = (Statement) conn.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM Order");
 			while (rs.next()) {
-				OrderDTO od = new OrderDTO();
-				od.setID_Order(rs.getInt("ID_Order"));
-				od.setID_User(rs.getInt("ID_User"));
-				od.setRequired(rs.getString("Required"));
-				od.setAddress(rs.getString("Address"));
-				od.setType(rs.getString("Type"));
-				od.setDateOrder (rs.getDate("DateOrder"));
-				od.setStatus(rs.getBoolean("Status"));
-				od.setPayment(rs.getString("Payment"));
-				listod.add(od);
+				
+				OrderDTO o = new OrderDTO();
+				o.setID_Order(rs.getInt("ID_Order"));
+				o.setID_User(rs.getInt("ID_User"));
+				o.setProductName(rs.getString("ProductName"));
+				o.setFloorNumber(rs.getString("FloorNumber"));
+				o.setSpeed(rs.getString("Speed"));
+				o.setHoleSize(rs.getString("HoleSize"));
+				o.setFloorNumber(rs.getString("FullName"));
+				o.setAddress(rs.getString("Address"));
+				o.setEmail(rs.getString("Email"));
+				o.setTelephone(rs.getString("Telephone"));
+				o.setDateOrder (rs.getDate("DateOrder"));
+				o.setStatus(rs.getBoolean("Status"));
+				o.setCost(rs.getInt("Cost"));
+				o.setPayment(rs.getString("Payment"));
+				listo.add(o);
 			}
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		return listod;
+		return listo;
 	}
 	
-	public OrderDTO findidOrderDTO(int id) {
+	public OrderDTO FindIdOrderDTO(int id) {
 
-		OrderDTO od = new OrderDTO();
+		OrderDTO o = new OrderDTO();
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
@@ -124,21 +139,24 @@ public class OrderDAO {
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
-				od.setID_Order(rs.getInt("ID_Order"));
-				od.setID_User(rs.getInt("ID_User"));
-				od.setRequired(rs.getString("Required"));
-				od.setAddress(rs.getString("Address"));
-				od.setType(rs.getString("Type"));
-				od.setDateOrder (rs.getDate("DateOrder"));
-				od.setStatus(rs.getBoolean("Status"));
-				od.setPayment(rs.getString("Payment"));
-				
-				
+				o.setID_Order(rs.getInt("ID_Order"));
+				o.setID_User(rs.getInt("ID_User"));
+				o.setProductName(rs.getString("ProductName"));
+				o.setFloorNumber(rs.getString("FloorNumber"));
+				o.setSpeed(rs.getString("Speed"));
+				o.setHoleSize(rs.getString("HoleSize"));
+				o.setFloorNumber(rs.getString("FullName"));
+				o.setAddress(rs.getString("Address"));
+				o.setEmail(rs.getString("Email"));
+				o.setTelephone(rs.getString("Telephone"));
+				o.setDateOrder (rs.getDate("DateOrder"));
+				o.setStatus(rs.getBoolean("Status"));
+				o.setCost(rs.getInt("Cost"));
+				o.setPayment(rs.getString("Payment"));			
 			}
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		return od;
+		return o;
 	}
-
 }
