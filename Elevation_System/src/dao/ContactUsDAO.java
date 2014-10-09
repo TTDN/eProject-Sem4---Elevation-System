@@ -17,7 +17,7 @@ public class ContactUsDAO {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
-					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;user=sa;password=1234567;");
+					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
 			PreparedStatement ps = conn
 					.prepareStatement("INSERT INTO ContactUs (Name,Telephone,CompanyName,Contents) VALUES(?,?,?,?)");
 			ps.setString(1, cu.getName());
