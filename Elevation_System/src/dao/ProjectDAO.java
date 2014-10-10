@@ -18,11 +18,13 @@ public class ProjectDAO{
 		try{
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
-					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;ader=sa;password=1234567;");
+					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
 			PreparedStatement ps = conn
-					.prepareStatement("INSERT INTO Project (Name,Contents) VALUES(?,?)");
+					.prepareStatement("INSERT INTO Project (Name,Contents,Images,Description) VALUES(?,?,?,?)");
 			ps.setString(1, p.getName());
 			ps.setString(2, p.getContents());
+			ps.setString(3, p.getImages());
+			ps.setString(4, p.getDescription());
 
 			int kq = ps.executeUpdate();
 			if (kq == 1) {
@@ -39,11 +41,13 @@ public class ProjectDAO{
 		try{
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
-					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;ader=sa;password=1234567;");
+					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
 			PreparedStatement ps = conn
-					.prepareStatement("UPDATE Project SET Name=?,Contents=? WHERE ID_Project=?");
+					.prepareStatement("UPDATE Project SET Name=?,Contents=?,Images=?,Description=?  WHERE ID_Project=?");
 			ps.setString(1, p.getName());
 			ps.setString(2, p.getContents());
+			ps.setString(3, p.getImages());
+			ps.setString(4, p.getDescription());
 
 			int kq = ps.executeUpdate();
 			if (kq == 1) {
@@ -60,7 +64,7 @@ public class ProjectDAO{
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
-					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;user=sa;password=1234567;");
+					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
 			PreparedStatement ps = conn
 					.prepareStatement("DELETE FROM Project WHERE ID_Project = ?");
 			ps.setInt(1, id);
@@ -82,7 +86,7 @@ public class ProjectDAO{
 		try{
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
-					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;user=sa;password=1234567;");
+					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
 			Statement stmt = (Statement) conn.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM Project");
 			while (rs.next()) {
@@ -90,6 +94,8 @@ public class ProjectDAO{
 				ProjectDTO p = new ProjectDTO();
 				p.setName("Name");
 				p.setContents("Contents");
+				p.setImages("Images");
+				p.setDescription("Description");
 				listproject.add(p);
 			}
 		}catch (SQLException | ClassNotFoundException e) {

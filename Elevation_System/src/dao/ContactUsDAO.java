@@ -42,7 +42,7 @@ public class ContactUsDAO {
 		try{
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
-					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;ader=sa;password=1234567;");
+					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
 			PreparedStatement ps = conn
 					.prepareStatement("SELECT * FROM ContactUs");
 			ResultSet rs = ps.executeQuery();
@@ -71,7 +71,7 @@ public class ContactUsDAO {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
-					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;ader=sa;password=1234567;");
+					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
 			PreparedStatement ps = conn
 					.prepareStatement("SELECT * FROM ContactUs WHERE Name = ?");
 			ps.setString(1, name);
@@ -100,7 +100,7 @@ public class ContactUsDAO {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
-					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;ader=sa;password=1234567;");
+					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
 			PreparedStatement ps = conn
 					.prepareStatement("SELECT * FROM ContactUs WHERE CompanyName = ?");
 			ps.setString(1, companyName);

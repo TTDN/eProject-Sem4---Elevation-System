@@ -15,7 +15,7 @@ public class AdminDAO {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
-					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;user=sa;password=1234567;");
+					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
 			PreparedStatement ps = conn
 					.prepareStatement("INSERT INTO Admin (UserName,PassWord,FullName,Phone,Email,Address) VALUES(?,?,?,?,?,?)");
 			ps.setString(1, ad.getUserName());
@@ -40,7 +40,7 @@ public class AdminDAO {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
-					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;ader=sa;password=1234567;");
+					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
 			PreparedStatement ps = conn
 					.prepareStatement("UPDATE Admin SET UserName=?,PassWord=?,FullName=?,Phone=?,Email=?,Address=? WHERE ID_Admin=?");
 			ps.setString(1, ad.getUserName());
@@ -65,7 +65,7 @@ public class AdminDAO {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
-					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;ader=sa;password=1234567;");
+					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
 			PreparedStatement ps = conn
 					.prepareStatement("DELETE FROM Admin WHERE ID_Admin = ?");
 			ps.setInt(1, id);
@@ -85,7 +85,7 @@ public class AdminDAO {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
-					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;ader=sa;password=1234567;");
+					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
 			Statement stmt = (Statement) conn.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM Admin");
 			while (rs.next()) {
@@ -111,7 +111,7 @@ public class AdminDAO {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
-					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;ader=sa;password=1234567;");
+					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
 			PreparedStatement ps = conn
 					.prepareStatement("SELECT * FROM Admin WHERE ID_Admin = ?");
 			ps.setInt(1, id);

@@ -9,30 +9,30 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import dto.OrderDTO;;
+import dto.QuotesDTO;;
 
-public class OrderDAO {
+public class QuotesDAO {
 	
-	public boolean InsertOrder (OrderDTO o) {
+	public boolean InsertOrder (QuotesDTO o) {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
-					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;ader=sa;password=1234567;");
+					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
 			PreparedStatement ps = conn
-					.prepareStatement("INSERT INTO Order (ID_User,ProductName,FloorNumber,Speed,HoleSize,FullName,Address,Email,Telephone,DateOrder,Status,Cost,Payment) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)");
-			ps.setInt(1, o.getID_User());
-			ps.setString(2, o.getProductName());
-			ps.setString(3, o.getFloorNumber());
-			ps.setString(4, o.getSpeed());
-			ps.setString(5, o.getHoleSize());
-			ps.setString(6, o.getFullName());
-			ps.setString(7, o.getAddress());
-			ps.setString(8, o.getEmail());
-			ps.setString(9, o.getTelephone());
-			ps.setDate(10, (Date) o.getDateOrder());
-			ps.setBoolean(11, o.getStatus());
-			ps.setInt(12, o.getCost());
-			ps.setString(13, o.getPayment());
+					.prepareStatement("INSERT INTO Quotes (ProductName,FloorNumber,Speed,HoleSize,FullName,Address,Email,Telephone,DateOrder,Status,Cost,Payment) VALUES(?,?,?,?,?,?,?,?,?,?,?)");
+		
+			ps.setString(1, o.getProductName());
+			ps.setString(2, o.getFloorNumber());
+			ps.setString(3, o.getSpeed());
+			ps.setString(4, o.getHoleSize());
+			ps.setString(5, o.getFullName());
+			ps.setString(6, o.getAddress());
+			ps.setString(7, o.getEmail());
+			ps.setString(8, o.getTelephone());
+			ps.setDate(9, (Date) o.getDateOrder());
+			ps.setBoolean(10, o.getStatus());
+			ps.setInt(11, o.getCost());
+			ps.setString(12, o.getPayment());
 		
 			int kq = ps.executeUpdate();
 			if (kq == 1) {
@@ -44,26 +44,25 @@ public class OrderDAO {
 		return false;
 	}
 	
-	public boolean UpdateOrder(OrderDTO o) {
+	public boolean UpdateOrder(QuotesDTO o) {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
-					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;ader=sa;password=1234567;");
+					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
 			PreparedStatement ps = conn
-					.prepareStatement("UPDATE Order SET ID_User=?,ProductName=?,FloorNumber=?,Speed=?,HoleSize=?,FullName=?,Address=?,Email=?,Telephone=?,DateOrder=?,Status=?,Cost=?,Payment=? WHERE ID_Oder=?");
-			ps.setInt(1, o.getID_User());
-			ps.setString(2, o.getProductName());
-			ps.setString(3, o.getFloorNumber());
-			ps.setString(4, o.getSpeed());
-			ps.setString(5, o.getHoleSize());
-			ps.setString(6, o.getFullName());
-			ps.setString(7, o.getAddress());
-			ps.setString(8, o.getEmail());
-			ps.setString(9, o.getTelephone());
-			ps.setDate(10, (Date) o.getDateOrder());
-			ps.setBoolean(11, o.getStatus());
-			ps.setInt(12, o.getCost());
-			ps.setString(13, o.getPayment());
+					.prepareStatement("UPDATE Quotes SET ProductName=?,FloorNumber=?,Speed=?,HoleSize=?,FullName=?,Address=?,Email=?,Telephone=?,DateOrder=?,Status=?,Cost=?,Payment=? WHERE ID_Quotes=?");
+			ps.setString(1, o.getProductName());
+			ps.setString(2, o.getFloorNumber());
+			ps.setString(3, o.getSpeed());
+			ps.setString(4, o.getHoleSize());
+			ps.setString(5, o.getFullName());
+			ps.setString(6, o.getAddress());
+			ps.setString(7, o.getEmail());
+			ps.setString(8, o.getTelephone());
+			ps.setDate(9, (Date) o.getDateOrder());
+			ps.setBoolean(10, o.getStatus());
+			ps.setInt(11, o.getCost());
+			ps.setString(12, o.getPayment());
 
 			int kq = ps.executeUpdate();
 			if (kq == 1) {
@@ -79,7 +78,7 @@ public class OrderDAO {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
-					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;ader=sa;password=1234567;");
+					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
 			PreparedStatement ps = conn
 					.prepareStatement("DELETE FROM Oder WHERE ID_Order = ?");
 			ps.setInt(1, id);
@@ -94,19 +93,19 @@ public class OrderDAO {
 		return false;
 	}
 	
-	public ArrayList<OrderDTO> FindAllOrder() {
-		ArrayList<OrderDTO> listo = new ArrayList<OrderDTO>();
+	public ArrayList<QuotesDTO> FindAllOrder() {
+		ArrayList<QuotesDTO> listo = new ArrayList<QuotesDTO>();
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
-					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;ader=sa;password=1234567;");
+					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
 			Statement stmt = (Statement) conn.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT * FROM Order");
+			ResultSet rs = stmt.executeQuery("SELECT * FROM Quotes");
 			while (rs.next()) {
 				
-				OrderDTO o = new OrderDTO();
-				o.setID_Order(rs.getInt("ID_Order"));
-				o.setID_User(rs.getInt("ID_User"));
+				QuotesDTO o = new QuotesDTO();
+				o.setID_Quotes(rs.getInt("ID_Quotes"));
+				
 				o.setProductName(rs.getString("ProductName"));
 				o.setFloorNumber(rs.getString("FloorNumber"));
 				o.setSpeed(rs.getString("Speed"));
@@ -127,20 +126,19 @@ public class OrderDAO {
 		return listo;
 	}
 	
-	public OrderDTO FindIdOrderDTO(int id) {
+	public QuotesDTO FindIdQuotesDTO(int id) {
 
-		OrderDTO o = new OrderDTO();
+		QuotesDTO o = new QuotesDTO();
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
-					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;ader=sa;password=1234567;");
+					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
 			PreparedStatement ps = conn
-					.prepareStatement("SELECT * FROM ContactInfor WHERE ID_ContactInfor = ?");
+					.prepareStatement("SELECT * FROM Quotes WHERE ID_Quotes = ?");
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
-				o.setID_Order(rs.getInt("ID_Order"));
-				o.setID_User(rs.getInt("ID_User"));
+				o.setID_Quotes(rs.getInt("ID_Quotes"));
 				o.setProductName(rs.getString("ProductName"));
 				o.setFloorNumber(rs.getString("FloorNumber"));
 				o.setSpeed(rs.getString("Speed"));
@@ -152,7 +150,7 @@ public class OrderDAO {
 				o.setDateOrder (rs.getDate("DateOrder"));
 				o.setStatus(rs.getBoolean("Status"));
 				o.setCost(rs.getInt("Cost"));
-				o.setPayment(rs.getString("Payment"));			
+				o.setPayment(rs.getString("Payment"));		
 			}
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();

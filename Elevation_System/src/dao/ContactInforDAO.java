@@ -16,7 +16,7 @@ public class ContactInforDAO {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
-					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;user=sa;password=1234567;");
+					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
 			PreparedStatement ps = conn
 					.prepareStatement("INSERT INTO ContactInfor (Address,MobiPhone,TelePhone,FAX,Email,Skype,Yahoo) VALUES(?,?,?,?,?,?,?)");
 			
@@ -40,7 +40,7 @@ public class ContactInforDAO {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
-					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;ader=sa;password=1234567;");
+					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
 			PreparedStatement ps = conn
 					.prepareStatement("UPDATE ContactInfor SET Address=?,Mobiphone=?,TelePhone=?,FAX=?,Email=?,Skype=?,Yahoo=? WHERE ID_ContactInfor=?");
 			ps.setString(1, cti.getAddress());
@@ -65,7 +65,7 @@ public class ContactInforDAO {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
-					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;ader=sa;password=1234567;");
+					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
 			PreparedStatement ps = conn
 					.prepareStatement("DELETE FROM ContactInfor WHERE ID_ContactInfor = ?");
 			ps.setInt(1, id);
@@ -85,7 +85,7 @@ public class ContactInforDAO {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
-					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;ader=sa;password=1234567;");
+					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
 			Statement stmt = (Statement) conn.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM Admin");
 			while (rs.next()) {
@@ -112,7 +112,7 @@ public class ContactInforDAO {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
-					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;ader=sa;password=1234567;");
+					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
 			PreparedStatement ps = conn
 					.prepareStatement("SELECT * FROM ContactInfor WHERE ID_ContactInfor = ?");
 			ps.setInt(1, id);

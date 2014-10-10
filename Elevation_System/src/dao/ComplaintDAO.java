@@ -15,12 +15,12 @@ public class ComplaintDAO {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
-					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;ader=sa;password=1234567;");
+					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
 			PreparedStatement ps = conn
-					.prepareStatement("INSERT INTO Complaint (ID_User,ID_Order,Contents) VALUES(?,?,?)");
-			ps.setInt(1, cp.getID_Order());
-			ps.setInt(2, cp.getID_User());
-			ps.setString(3, cp.getContents());
+					.prepareStatement("INSERT INTO Complaint (ID_User,Contents) VALUES(?,?)");
+		
+			ps.setInt(1, cp.getID_User());
+			ps.setString(2, cp.getContents());
 		
 		
 			int kq = ps.executeUpdate();
@@ -38,13 +38,13 @@ public class ComplaintDAO {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
-					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;ader=sa;password=1234567;");
+					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
 			PreparedStatement ps = conn
-					.prepareStatement("UPDATE Complaint SET ID_User=?,ID_Order=?,Contents=? WHERE ID_Complaint=?");
-			ps.setInt(1, cp.getID_Order());
-			ps.setInt(2, cp.getID_User());
-			ps.setString(3, cp.getContents());
-			ps.setInt(4,cp.getID_Complaint());
+					.prepareStatement("UPDATE Complaint SET ID_User=?,Contents=? WHERE ID_Complaint=?");
+	
+			ps.setInt(1, cp.getID_User());
+			ps.setString(2, cp.getContents());
+			ps.setInt(3,cp.getID_Complaint());
 		
 
 			int kq = ps.executeUpdate();
@@ -61,7 +61,7 @@ public class ComplaintDAO {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
-					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;ader=sa;password=1234567;");
+					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
 			PreparedStatement ps = conn
 					.prepareStatement("DELETE FROM Complaint WHERE ID_Complaint = ?");
 			ps.setInt(1, id);
@@ -81,14 +81,13 @@ public class ComplaintDAO {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
-					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;ader=sa;password=1234567;");
+					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
 			Statement stmt = (Statement) conn.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM Complaint");
 			while (rs.next()) {
 				ComplaintDTO cp = new ComplaintDTO();
 				cp.setID_Complaint(rs.getInt("ID_Complaint"));
 				cp.setID_User(rs.getInt("ID_User"));
-				cp.setID_Order(rs.getInt("ID_Order"));
 				cp.setContents(rs.getString("Contents"));
 				
 				
@@ -106,7 +105,7 @@ public class ComplaintDAO {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
-					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Elevation System;ader=sa;password=1234567;");
+					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
 			PreparedStatement ps = conn
 					.prepareStatement("SELECT * FROM Complaint WHERE ID_Complaint = ?");
 			ps.setInt(1, id);
@@ -114,7 +113,6 @@ public class ComplaintDAO {
 			if (rs.next()) {
 				ad.setID_Complaint(rs.getInt("ID_Complaint"));
 				ad.setID_User(rs.getInt("ID_User"));
-				ad.setID_Order(rs.getInt("ID_Order"));
 				ad.setContents(rs.getString("Contents"));
 				
 				
