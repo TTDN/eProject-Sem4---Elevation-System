@@ -2,8 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui" >
 <h:body>
 
 	<ui:composition template="./MasterPage.xhtml">
@@ -20,36 +21,44 @@
 				<div class="span8">
 					<h4>Contact Form</h4>
 					<div class="status alert alert-success" style="display: none"></div>
-
-					<h:form id="main-contact-form" 
-						name="contact-form">
+						<h:form id="main-contact-form" name="contact-form">
+						<p:panel id="panel" header="Contact Form" styleClass="panel panel-primary" >
+						
 						<div class="row-fluid">
+						
 							<div class="span5">
-								<label>First Name</label>
-								<h:inputText class="input-block-level"
+								<p:outputLabel for="fullname" value="Full Name " />
+								<h:inputText class="input-block-level" id="fullname" required="true"
 									placeholder="Your First Name" value="#{contactus.ctu.name}">
+									<f:validateLength minimum="5" />
 								</h:inputText>
-								<label>Last Name</label>
-								<h:inputText type="text" class="input-block-level"
+								
+								<h:message for="fullname" style="color:red"></h:message>
+								<p:outputLabel for="telephone" value="Telephone" />
+								<h:inputText  id="telephone" class="input-block-level" required="true"
 									placeholder="Your Last Name" value="#{contactus.ctu.telephone}">
+									<f:validateLength minimum="10" />
 								</h:inputText>
-								<label>Email Address</label>
-								<h:inputText class="input-block-level"
+								<p:outputLabel for="companyname" value="Company Name" />
+								<h:inputText class="input-block-level" id="companyname" 
 									placeholder="Your email address"
 									value="#{contactus.ctu.companyName}">
 								</h:inputText>
 							</div>
 							<div class="span7">
-								<label>Message</label>
-								<h:inputTextarea name="message" id="message"
+								<p:outputLabel for="contents" value="Firstname:" />
+								<h:inputTextarea name="message" id="contents"
 									class="input-block-level" rows="8"
 									value="#{contactus.ctu.contents}">
+									<f:validateLength minimum="50" />
 								</h:inputTextarea>
-							</div>
 						</div>
-						<h:commandButton type="submit" class="btn btn-primary btn-large pull-right" value="SendMessage" action="#{contactus.sendmessage}"></h:commandButton>
-						<p></p>
-
+						<h:commandButton   class="btn btn-primary btn-large pull-right" value="Send Message" action="#{contactus.sendmessage}"></h:commandButton>
+						</div>
+						
+						
+						
+</p:panel>
 					</h:form>
 				</div>
 				<br></br> <br></br> <br></br>

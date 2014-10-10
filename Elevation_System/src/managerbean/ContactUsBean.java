@@ -9,7 +9,7 @@ import dao.ContactUsDAO;
 
 import dto.ContactUsDTO;
 
-@ManagedBean(name ="contactus")
+
 public class ContactUsBean {
 	public static final long serialVersionUID = 1L;
 	private ContactUsDTO ctu= new ContactUsDTO();
