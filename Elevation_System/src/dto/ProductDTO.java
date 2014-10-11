@@ -1,31 +1,20 @@
 package dto;
 
 public class ProductDTO {
-private int ID_Project;
-private int ID_Order;
-private int ID_Type;
+private int ID_Product;
+
+
 private String Name;
 private String Images;
 private String Description;
 private boolean Status;
 private String Contents;
-public int getID_Project() {
-	return ID_Project;
+
+public int getID_Product() {
+	return ID_Product;
 }
-public void setID_Project(int iD_Project) {
-	ID_Project = iD_Project;
-}
-public int getID_Order() {
-	return ID_Order;
-}
-public void setID_Order(int iD_Order) {
-	ID_Order = iD_Order;
-}
-public int getID_Type() {
-	return ID_Type;
-}
-public void setID_Type(int iD_Type) {
-	ID_Type = iD_Type;
+public void setID_Product(int iD_Product) {
+	ID_Product = iD_Product;
 }
 public String getName() {
 	return Name;
@@ -57,12 +46,11 @@ public String getContents() {
 public void setContents(String contents) {
 	Contents = contents;
 }
-public ProductDTO(int iD_Project, int iD_Order, int iD_Type, String name,
-		String images, String description, boolean status, String contents) {
+
+public ProductDTO(int iD_Product, String name, String images,
+		String description, boolean status, String contents) {
 	super();
-	ID_Project = iD_Project;
-	ID_Order = iD_Order;
-	ID_Type = iD_Type;
+	ID_Product = iD_Product;
 	Name = name;
 	Images = images;
 	Description = description;
