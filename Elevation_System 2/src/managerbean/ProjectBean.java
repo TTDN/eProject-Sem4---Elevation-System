@@ -1,6 +1,6 @@
 package managerbean;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -22,18 +22,21 @@ public class ProjectBean {
 		this.p = p;
 	}
 	public List<ProjectDTO> getListproject() {
+		ProjectDAO p = new ProjectDAO();
+		List<ProjectDTO> listproject = p.FindAllProject();
+		
 		return listproject;
 	}
 	public void setListproject(List<ProjectDTO> listproject) {
 		this.listproject = listproject;
 	}
 	
-	public List<ProjectDTO> ShowAllProject(){
-		
-		ProjectDAO p = new ProjectDAO();
-		List<ProjectDTO> listproject = p.FindAllProject();
-		
-		return listproject;
-		
-	}	
+//	public List<ProjectDTO> ShowAllProject(){
+//		
+//		ProjectDAO p = new ProjectDAO();
+//		List<ProjectDTO> listproject = p.FindAllProject();
+//		
+//		return listproject;
+//		
+//	}	
 }
