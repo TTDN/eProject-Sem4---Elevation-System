@@ -13,14 +13,15 @@
 			<h1 style="text-align: center">Register</h1>
 			<br></br>
 			<section id="registration-page" class="container">
-			<form class="center">
+		<h:form id="main-contact-form" name="contact-form" class="center">
 				<fieldset class="registration-form">
 					<div class="control-group">
 						<div class="controls">
-							<h:inputText class="input-block-level" id="username"
-								required="true" p:placeholder="write something"
+							<h:inputText class="input-block-level" id="username" 
+								required="true" requiredMessage="UserName not required"
 								value="#{UserBean.us.userName}">
 								<f:validateLength minimum="6" />
+								<f:validateRegex pattern="[\w\.-]*[a-zA-Z]" />
 							</h:inputText>
 							<h:message for="username" style="color:red"></h:message>
 						</div>
@@ -28,7 +29,7 @@
 					<div class="control-group">
 						<div class="controls">
 							<h:inputText class="input-block-level" id="password"
-								required="true" p:placeholder="write something"
+								required="true" requiredMessage="Password not required"
 								value="#{UserBean.us.passWord}">
 								<f:validateLength minimum="6" />
 							</h:inputText>
@@ -38,18 +39,19 @@
 					<div class="control-group">
 						<div class="controls">
 							<h:inputText class="input-block-level" id="fullName"
-								required="true" p:placeholder="write something"
+								required="true" requiredMessage="FullName not required"
 								value="#{UserBean.us.fullName}">
 								<f:validateLength minimum="6" />
+								<f:validateRegex pattern="[\w\.-]*[a-zA-Z]" />
 							</h:inputText>
 							<h:message for="fullName" style="color:red"></h:message>
 						</div>
 					</div>
 					<div class="control-group">
 						<div class="controls">
-							<h:inputText class="input-block-level" id="email" required="true"
-								p:placeholder="write something" value="#{UserBean.us.email}">
-								<f:validateLength minimum="6" />
+							<h:inputText class="input-block-level" id="email" required="true"  requiredMessage="Email not required"
+								 value="#{UserBean.us.email}">
+								<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
 							</h:inputText>
 							<h:message for="email" style="color:red"></h:message>
 						</div>
@@ -57,9 +59,9 @@
 					<div class="control-group">
 						<div class="controls">
 							<h:inputText class="input-block-level" id="address"
-								required="true" p:placeholder="write something"
+								required="true" requiredMessage="Address not required"
 								value="#{UserBean.us.address}">
-								<f:validateLength minimum="6" />
+								<f:validateLength minimum="10" />
 							</h:inputText>
 							<h:message for="address" style="color:red"></h:message>
 						</div>
@@ -67,11 +69,11 @@
 					<div class="control-group">
 						<div class="controls">
 							<h:inputText class="input-block-level" id="company"
-								required="true" p:placeholder="write something"
+								required="true" requiredMessage="Company not required"
 								value="#{UserBean.us.company}">
 								<f:validateLength minimum="6" />
 							</h:inputText>
-							<h:message for="address" style="color:red"></h:message>
+							<h:message for="company" style="color:red"></h:message>
 						</div>
 					</div>
 					<div class="control-group">
@@ -81,7 +83,7 @@
 						</div>
 					</div>
 				</fieldset>
-			</form>
+			</h:form>
 			</section>
 		</ui:define>
 	</ui:composition>
