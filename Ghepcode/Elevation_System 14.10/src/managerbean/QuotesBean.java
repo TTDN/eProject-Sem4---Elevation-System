@@ -1,15 +1,12 @@
 package managerbean;
 
 import java.sql.SQLException;
+import util.HttpUtil;
 import java.util.List;
-
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-
-import dao.ContactUsDAO;
 import dao.ProductDAO;
 import dao.QuotesDAO;
-import dto.ContactUsDTO;
 import dto.ProductDTO;
 import dto.QuotesDTO;
 
@@ -48,15 +45,24 @@ public class QuotesBean {
 		
 	}
 	
+	public String getSession(){
+		return String.valueOf(HttpUtil.getFromSession("quotes"));
+	}
+	public String DestroySession(){
+		HttpUtil.putToSession("quotes", null);
+		return "Index";
+	}
+	
 	public String addquotes() throws ClassNotFoundException, SQLException {
 		qu.setID_Product(x);
 		ProductDAO po = new ProductDAO();
 		ProductDTO dto = po.findidProductDTO(x);
 		qu.setProductName(dto.getName());
+	
 		QuotesDAO q= new QuotesDAO();
-		q.InsertOrder(qu);
-
-		return "register-success?faces-redirect=true";
+		q.InsertQuotes(qu);
+HttpUtil.putToSession("quotes", "Thank you very much ! We will send quotes to you soon.");
+		return "Quotes.xhtml?faces-redirect=true";
 	}
 	
 }

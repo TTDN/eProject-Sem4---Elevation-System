@@ -1,13 +1,18 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
+import javax.print.attribute.standard.DateTimeAtCompleted;
 
 import dto.ProductDTO;
 import dto.QuotesDTO;;
@@ -20,7 +25,7 @@ public class QuotesDAO {
 			Connection conn = (Connection) DriverManager
 					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
 			PreparedStatement ps = conn
-					.prepareStatement("INSERT INTO Quotes (ID_Product,ProductName,FloorNumber,Speed,HoleSize,FullName,Address,Email,Telephone,DateOrder,Status,Cost,Payment) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)");
+					.prepareStatement("INSERT INTO Quotes (ID_Product,ProductName,FloorNumber,Speed,HoleSize,FullName,Address,Email,Telephone,DateOrder,Status,Cost,Payment) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)");
 			ps.setInt(1, o.getID_Product());
 			ps.setString(2, o.getProductName());
 			ps.setString(3, o.getFloorNumber());
@@ -31,8 +36,8 @@ public class QuotesDAO {
 			ps.setString(8, o.getEmail());
 			ps.setString(9, o.getTelephone());
 			ps.setDate(10, (Date) o.getDateOrder());
-			ps.setBoolean(11, o.getStatus());
-			ps.setInt(12, o.getCost());
+			ps.setBoolean(11, true);
+			ps.setInt(12, 12);
 			ps.setString(13, o.getPayment());
 		
 			int kq = ps.executeUpdate();
@@ -191,4 +196,47 @@ public class QuotesDAO {
 		System.out.println(list);
 		
 	}
+	
+	
+	
+	
+	public boolean InsertQuotes (QuotesDTO o) {
+		try {
+			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+			Connection conn = (Connection) DriverManager
+					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
+			PreparedStatement ps = conn
+					.prepareStatement("INSERT INTO Quotes (ID_Product,ProductName,Weight,FloorNumber,Speed,HoleSize,FullName,Address,Email,Telephone,DateOrder,Payment) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)");
+			ps.setInt(1, o.getID_Product());
+			ps.setString(2, o.getProductName());
+			ps.setString(3, o.getWeight());
+			ps.setString(4, o.getFloorNumber());
+			ps.setString(5, o.getSpeed());
+			ps.setString(6, o.getHoleSize());
+			ps.setString(7, o.getFullName());
+			ps.setString(8, o.getAddress());
+			ps.setString(9, o.getEmail());
+			ps.setString(10, o.getTelephone());
+//			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+//			java.util.Date date = new java.util.Date();
+//			date = dateFormat.format(date);
+			Calendar calendar = Calendar.getInstance();
+
+			java.util.Date currentDate = calendar.getTime();
+
+			java.sql.Date date = new java.sql.Date(currentDate.getTime());
+			ps.setDate(11, date);
+			
+			ps.setString(12, o.getPayment());
+		
+			int kq = ps.executeUpdate();
+			if (kq == 1) {
+				return true;
+			}
+		} catch (SQLException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
 }
