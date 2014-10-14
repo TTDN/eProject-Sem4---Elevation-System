@@ -56,49 +56,31 @@
 						<h:commandButton   class="btn btn-primary btn-large pull-right" value="Send Message" action="#{contactus.sendmessage}"></h:commandButton>
 						</div>
 						
-					
+						
 						
 </p:panel>
 					</h:form>
 				</div>
 				<br></br> <br></br> <br></br>
+				<div class="span3">
+					<h4>Our Address</h4>
+					<p>Pellentesque habitant morbi tristique senectus et netus et
+						malesuada fames ac turpis egestas.</p>
+					<p>
+						<i class="icon-map-marker pull-left"></i> 1209 Willow Oaks Lane,
+						New York<br></br> Lafayette, 1212, United States
+					</p>
+					<p>
+						<i class="icon-envelope"></i> &nbsp;email@example.com
+					</p>
+					<p>
+						<i class="icon-phone"></i> &nbsp;+123 45 67 89
+					</p>
+					<p>
+						<i class="icon-globe"></i> &nbsp;http://www.shapebootstrap.net
+					</p>
 				</div>
-				
-<!-- -Demo -->
- <div class="span3" style="margin-left: 800px ; margin-top: -325px">
-			<h:form id="form">
-    <p:dataList value="#{ContactInforBean.listContactInfor}" var="x" >
-   
-        <f:facet name="header">
-        Contact Information
-        </f:facet>
-       <p>
-						<i>Address:</i> #{x.address}
-					</p>
-					 <p>
-						&nbsp;<i>MobilePhone:</i> #{x.mobilePhone}
-					</p>
-					<p>
-						&nbsp;<i>TelePhone:</i> #{x.telePhone}
-					</p>
-					<p>
-						&nbsp;<i>Fax:</i> #{x.FAX}
-					</p>
-					<p>
-						&nbsp;<i>Email:</i> #{x.email}
-					</p>
-					<p>
-						&nbsp;<i>Skype:</i> #{x.skype}
-					</p>
-					<p>
-						&nbsp;<i>Yahoo:</i> #{x.yahoo}
-					</p>
-					
-					
-    </p:dataList>
-    </h:form>
-    </div>
-    <!-- End Demo -->
+			</div>
 			<br></br>
 			<br></br>
 			</section>

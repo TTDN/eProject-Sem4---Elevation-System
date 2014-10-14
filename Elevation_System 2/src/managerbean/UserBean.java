@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 
-import util.HttpUtil;
 import dto.UserDTO;
 import dao.UserDAO;
 
@@ -29,14 +28,6 @@ public class UserBean {
 	public void setListUser(List<UserDTO> listUser) {
 		this.listUser = listUser;
 	}
-	public String getSession(){
-		return String.valueOf(HttpUtil.getFromSession("username"));
-	}
-	public String DestroySession(){
-		HttpUtil.putToSession("username", null);
-		return "Index";
-	}
-	
 	public UserBean() {
 		UserDAO user= new UserDAO();
 		listUser = user.FindAllUserDTO();
@@ -51,24 +42,20 @@ public class UserBean {
 	}
 	
 	
-public String Login(){
+	public String Login(){
 		
-		Boolean u = UserDAO.FindByUsername(us.getUserName(), us.getPassWord());
-//		for (UserDTO u : listuser) {
-//			if(us.getUserName().equals(u.getUserName()) && us.getPassWord().equals(u.getPassWord())){
-//				System.out.println("Login thành công.");
-//			}else{
-//				System.out.println("Fail.");
-//			}
-//		}
-		System.out.println(us.getUserName() + us.getPassWord());
+		Boolean u = UserDAO.FindByUsername("user", "hihi123");
+		/*for (UserDTO u : listuser) {
+			if(us.getUserName().equals(u.getUserName()) && us.getPassWord().equals(u.getPassWord())){
+				System.out.println("Login thành công.");
+			}else{
+				System.out.println("Fail.");
+			}
+		}*/
 		if(u == true){
 			System.out.println("Có user này.");
-			HttpUtil.putToSession("username", us.getUserName());
-//			return "index?faces-redirect=true";
 		}else{
 			System.out.println("Không có user này.");
-			HttpUtil.putToSession("username", us.getUserName());
 		}
 		return null;
 	}
