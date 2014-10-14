@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./MasterPage.xhtml">
+
+            <ui:define name="content">
+                <br></br>
+                <h1 style="text-align: center">Login</h1>
+                <br></br>
+                <section id="registration-page" class="container">
+                    <h:form class="center">
+                        <fieldset class="registration-form">
+                            <div class="control-group">
+                                <div class="controls">
+                                   <h2 style="float: left;padding-right: 15px">Username</h2><h:inputText id="txtUsername" placehorder="username" value="#{UserBean.us.userName}" requiredMessage="aafafaffa" required="true"></h:inputText>
+                                    <h:message for="username" style="color:red"></h:message>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <div class="controls">
+                               <h2 style="float: left;padding-right: 15px">Password</h2>    <h:inputSecret id="txtPassword" placehorder="password" value="#{UserBean.us.passWord}"></h:inputSecret>
+                                    <h:message for="password" style="color:red"></h:message>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <!-- Button -->
+                                <div class="controls">
+                                    <h:commandButton type="submit"  class="btn btn-success btn-large btn-block" value="submit" action="#{UserBean.Login}"></h:commandButton>
+                                </div>
+                            </div>
+                          
+                        </fieldset>
+                          </h:form>
+                          </section>
+                        </ui:define>
+                        </ui:composition>
+                        </body>
+                        </html>

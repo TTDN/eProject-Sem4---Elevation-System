@@ -47,15 +47,13 @@
 							<c:choose>
                             	<c:when test="#{UserBean.session == 'null'}">
                             		<li><a href="RegisterUser.xhtml">Register</a></li>
-                            		<li><a href="UserLogin.xhtml">Login</a></li>
+                            		<li><a href="LoginUser.xhtml">Login</a></li>
                             	</c:when>
                             	<c:otherwise>
       								<li><a href="Profile.xhtml">Hi, #{UserBean.session}</a></li>
-      								<li><h:form><h:commandButton action="#{UserBean.DestroySession}" value="Log Out"/></h:form></li>
+      								<li><h:form><h:commandButton action="#{UserBean.DestroySession}" value="Log Out" class="btn btn-info"/></h:form></li>
       							</c:otherwise>
       						</c:choose>
-							<li class="login"><a data-toggle="modal" href="#"><i
-									class="icon-lock"></i></a></li>
 						</ul>
 					</div>
 				</div>
