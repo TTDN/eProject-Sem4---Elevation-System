@@ -87,12 +87,12 @@ public class ContactInforDAO {
 			Connection conn = (Connection) DriverManager
 					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
 			Statement stmt = (Statement) conn.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT * FROM Admin");
+			ResultSet rs = stmt.executeQuery("SELECT * FROM ContactInfor");
 			while (rs.next()) {
 				ContactInforDTO cti = new ContactInforDTO();
 				cti.setID_ContactInfo(rs.getInt("ID_ContactInfor"));
 				cti.setAddress(rs.getString("Address"));
-				cti.setMobilePhone(rs.getString("MobiPhone"));
+				cti.setMobilePhone(rs.getString("MobilePhone"));
 				cti.setTelePhone(rs.getString("TelePhone"));
 				cti.setFAX(rs.getString("FAX"));
 				cti.setEmail(rs.getString("Email"));
