@@ -9,6 +9,7 @@ import dao.ContactUsDAO;
 
 import dto.ContactUsDTO;
 
+
 @ManagedBean(name ="contactus")
 public class ContactUsBean {
 	public static final long serialVersionUID = 1L;
@@ -26,6 +27,11 @@ public class ContactUsBean {
 	public void setListctu(List<ContactUsDTO> listctu) {
 		this.listctu = listctu;
 		
+	}
+	
+	public List<ContactUsDTO> getListcontactus() {
+		List<ContactUsDTO> ls = new ContactUsDAO().FindAll();
+		return ls ;
 	}
 	public ContactUsBean() {
 		
