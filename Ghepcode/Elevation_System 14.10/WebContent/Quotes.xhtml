@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+<h:body>
+
+	<ui:composition template="./MasterPage.xhtml">
+
+		<ui:define name="content">
+			<h:form>
+				
+<!-- Hole Size -->
+				<h:outputLabel value="Hole Size"></h:outputLabel>
+	<h:inputText vlaue="#{QuotesBean.qu.holeSize}"></h:inputText>
+	<!-- Full name -->
+	<h:outputLabel value="Full name"></h:outputLabel>
+	<h:inputText vlaue="#{QuotesBean.qu.fullName}"></h:inputText>
+	<!-- Address -->
+	<h:outputLabel value="Address"></h:outputLabel>
+	<h:inputText vlaue="#{QuotesBean.qu.address}"></h:inputText>
+
+				<!--Email  -->
+
+	<h:outputLabel value="Email"></h:outputLabel>
+	<h:inputText vlaue="#{QuotesBean.qu.email}"></h:inputText>
+	<!-- telephone -->
+
+	<h:outputLabel value="Telephone"></h:outputLabel>
+	<h:inputText vlaue="#{QuotesBean.qu.telephone}"></h:inputText>
+	<!-- Payment -->
+	
+	
+	
+<h:commandButton value="Send " action="#{QuotesBean.addquotes}"></h:commandButton>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
