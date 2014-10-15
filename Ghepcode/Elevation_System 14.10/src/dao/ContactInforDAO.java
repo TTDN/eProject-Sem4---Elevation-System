@@ -18,7 +18,7 @@ public class ContactInforDAO {
 			Connection conn = (Connection) DriverManager
 					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
 			PreparedStatement ps = conn
-					.prepareStatement("INSERT INTO ContactInfor (Address,MobiPhone,TelePhone,FAX,Email,Skype,Yahoo) VALUES(?,?,?,?,?,?,?)");
+					.prepareStatement("INSERT INTO ContactInfor (Address,MobilePhone,TelePhone,FAX,Email,Skype,Yahoo) VALUES(?,?,?,?,?,?,?)");
 			
 			ps.setString(2, cti.getMobilePhone());
 			ps.setString(3, cti.getTelePhone());
@@ -36,13 +36,13 @@ public class ContactInforDAO {
 		}
 		return false;
 	}
-	public boolean updateContactInfor(ContactInforDTO cti) {
+	public static boolean updateContactInfor(ContactInforDTO cti) {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
 					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
 			PreparedStatement ps = conn
-					.prepareStatement("UPDATE ContactInfor SET Address=?,Mobiphone=?,TelePhone=?,FAX=?,Email=?,Skype=?,Yahoo=? WHERE ID_ContactInfor=?");
+					.prepareStatement("UPDATE ContactInfor SET Address=?,Mobilephone=?,TelePhone=?,FAX=?,Email=?,Skype=?,Yahoo=? WHERE ID_ContactInfor=1");
 			ps.setString(1, cti.getAddress());
 			ps.setString(2, cti.getMobilePhone());
 			ps.setString(3, cti.getTelePhone());
@@ -106,6 +106,36 @@ public class ContactInforDAO {
 		return listcti;
 	}
 	
+	
+	
+	public ContactInforDTO findallContact() {
+//		ArrayList<ContactInforDTO> listcti = new ArrayList<ContactInforDTO>();
+		ContactInforDTO cti = new ContactInforDTO();
+		try {
+			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+			Connection conn = (Connection) DriverManager
+					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
+			Statement stmt = (Statement) conn.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM ContactInfor");
+			while (rs.next()) {
+				
+				cti.setID_ContactInfo(rs.getInt("ID_ContactInfor"));
+				cti.setAddress(rs.getString("Address"));
+				cti.setMobilePhone(rs.getString("MobilePhone"));
+				cti.setTelePhone(rs.getString("TelePhone"));
+				cti.setFAX(rs.getString("FAX"));
+				cti.setEmail(rs.getString("Email"));
+				cti.setSkype(rs.getString("Skype"));
+				cti.setYahoo(rs.getString("Yahoo"));
+//				listcti.add(cti);
+			}
+		} catch (SQLException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return cti;
+	}
+	
+	
 	public ContactInforDTO findidContactInforDTO(int id) {
 
 		ContactInforDTO cti = new ContactInforDTO();
@@ -121,7 +151,7 @@ public class ContactInforDAO {
 				
 				cti.setID_ContactInfo(rs.getInt("ID_ContactInfor"));
 				cti.setAddress(rs.getString("Address"));
-				cti.setMobilePhone(rs.getString("MobiPhone"));
+				cti.setMobilePhone(rs.getString("MobilePhone"));
 				cti.setTelePhone(rs.getString("TelePhone"));
 				cti.setFAX(rs.getString("FAX"));
 				cti.setEmail(rs.getString("Email"));
