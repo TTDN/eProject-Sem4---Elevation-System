@@ -17,66 +17,66 @@
 				<fieldset class="registration-form">
 					<div class="control-group">
 						<div class="controls">
-							<h2 style="float: left;margin-top: -10px">Username</h2> <h:inputText class="input-block-level" id="username"
-								required="true" p:placeholder="write something"
+							<h3 style="float: left;padding: 10px">Username</h3> <h:inputText class="" id="username"
+								required="true" p:placeholder="write something" requiredMessage="please do not leave blank"
 								value="#{UserBean.us.userName}">
 								<f:validateLength minimum="6" />
-							</h:inputText>
-							<h:message for="username" style="color:red"></h:message>
+							</h:inputText>				
 						</div>
+						<h:message for="username" style="color:red"></h:message>
 					</div>
 					<div class="control-group">
 						<div class="controls">
-							 <h2 style="float: left;margin-top: -10px">Password</h2> <h:inputText class="input-block-level" id="password"
-								required="true" p:placeholder="write something"
+							 <h3 style="float: left;padding: 10px;padding-right: 15px">Password</h3> <h:inputSecret class="" id="password"
+								required="true" p:placeholder="write something" requiredMessage="please do not leave blank"
 								value="#{UserBean.us.passWord}">
 								<f:validateLength minimum="6" />
-							</h:inputText>
-							<h:message for="password" style="color:red"></h:message>
+							</h:inputSecret>					
 						</div>
+						<h:message for="password" style="color:red"></h:message>
 					</div>
 					<div class="control-group">
 						<div class="controls">
-						    <h2 style="float: left;margin-top: -10px">Fullname</h2>
-							<h:inputText class="input-block-level" id="fullName"
-								required="true" p:placeholder="write something"
+						    <h3 style="float: left;padding: 10px;padding-right: 16px">Fullname</h3>
+							<h:inputText id="fullName"
+								required="true" p:placeholder="write something" requiredMessage="please do not leave blank"
 								value="#{UserBean.us.fullName}">
 								<f:validateLength minimum="6" />
-							</h:inputText>
-							<h:message for="fullName" style="color:red"></h:message>
+							</h:inputText>					
 						</div>
+						<h:message for="fullName" style="color:red"></h:message>
 					</div>
 					<div class="control-group">
 						<div class="controls">
-						<h2 style="float: left;margin-top: -10px">Email</h2>
-							<h:inputText class="input-block-level" id="email" required="true"
+						<h3 style="float: left;padding: 10px;padding-right: 50px">Email</h3>
+							<h:inputText  id="email" required="true" requiredMessage="please do not leave blank"
 								p:placeholder="write something" value="#{UserBean.us.email}">
 								<f:validateLength minimum="6" />
-							</h:inputText>
-							<h:message for="email" style="color:red"></h:message>
+							</h:inputText>			
 						</div>
+							<h:message for="email" style="color:red"></h:message>
 					</div>
 					<div class="control-group">
 						<div class="controls">
-						<h2 style="float: left;margin-top: -10px">Address</h2>
-							<h:inputText class="input-block-level" id="address"
+						<h3 style="float: left;padding: 10px;padding-right: 50px;padding-right: 29px">Address</h3>
+							<h:inputText class="" id="address" requiredMessage="please do not leave blank"
 								required="true" p:placeholder="write something"
 								value="#{UserBean.us.address}">
 								<f:validateLength minimum="6" />
-							</h:inputText>
-							<h:message for="address" style="color:red"></h:message>
+							</h:inputText>							
 						</div>
+						<h:message for="address" style="color:red"></h:message>
 					</div>
 					<div class="control-group">
 						<div class="controls">
-						<h2 style="float: left;margin-top: -10px">Company</h2>
-							<h:inputText class="input-block-level" id="company"
+						<h3 style="float: left;padding: 10px;padding-right: 19px">company</h3>
+							<h:inputText class="" id="company" requiredMessage="please do not leave blank"
 								required="true" p:placeholder="write something"
 								value="#{UserBean.us.company}">
 								<f:validateLength minimum="6" />
-							</h:inputText>
-							<h:message for="address" style="color:red"></h:message>
+							</h:inputText>		
 						</div>
+							<h:message for="company" style="color:red"></h:message>
 					</div>
 					<div class="control-group">
 						<!-- Button -->
