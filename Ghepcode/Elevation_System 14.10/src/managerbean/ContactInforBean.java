@@ -41,6 +41,12 @@ public ContactInforDTO getCt() {
 //		ct=new ContactInforDAO().findallContactInfor();
 		ContactInforDTO contact=new ContactInforDTO();
 		contact.setAddress(ct.getAddress());
+		contact.setTelePhone(ct.getTelePhone());
+		contact.setMobilePhone(ct.getMobilePhone());
+		contact.setEmail(ct.getEmail());
+		contact.setFAX(ct.getFAX());
+		contact.setSkype(ct.getSkype());
+		contact.setYahoo(ct.getYahoo());
 		contact=ct;
 		
 		ContactInforDAO.updateContactInfor(contact);

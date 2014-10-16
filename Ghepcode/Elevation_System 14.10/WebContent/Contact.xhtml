@@ -65,35 +65,42 @@
 				<!-- -Demo -->
  <div class="span3" style="margin-left: 800px ; margin-top: -325px">
 			<h:form id="form">
-    <p:dataList value="#{ContactInforBean.listContactInfor}" var="x" >
    
-        <f:facet name="header">
-        Contact Information
-        </f:facet>
-       <p>
-						<i>Address:</i> #{x.address}
-					</p>
-					 <p>
-						&nbsp;<i>MobilePhone:</i> #{x.mobilePhone}
-					</p>
-					<p>
-					&nbsp;<i>TelePhone:</i> #{x.telePhone}
-					</p>
-					<p>
-					&nbsp;<i>Fax:</i> #{x.FAX}
-					</p>
-					<p>
-					&nbsp;<i>Email:</i> #{x.email}
-					</p>
-					<p>
-					&nbsp;<i>Skype:</i> #{x.skype}
-					</p>
-					<p>
-						&nbsp;<i>Yahoo:</i> #{x.yahoo}
-					</p>
+       
+				
+					
+					<p:growl id="msgs" showDetail="true" />
+ 
+    <p:fieldset legend="Basic" style="margin-bottom:20px; margin:-15px">
+        <h:panelGrid columns="2" cellpadding="5" style="margin: 3px">
+           
+           	 <h:outputLabel value="- Address: #{ContactInforBean.ct.address}"/>
+						 <p>
+						 <h:outputLabel value="- MobilePhone: #{ContactInforBean.ct.mobilePhone}"/>
+						 </p>
+						 <p>
+						 <h:outputLabel value="- Telephone: #{ContactInforBean.ct.telePhone}"/>
+						 </p>
+						 <p>
+						 
+						 <h:outputLabel value="- Fax: #{ContactInforBean.ct.FAX}"/>
+						 </p>
+						 <p>
+						 
+						 <h:outputLabel value="- Email: #{ContactInforBean.ct.email}"/>
+						 </p>
+						 <p>
+						 <h:outputLabel value="- Skype: #{ContactInforBean.ct.skype}"/>
+						 </p>
+						 <p>
+						 
+						<h:outputLabel value="- Yahoo: #{ContactInforBean.ct.yahoo}"/>
+						</p>
+        </h:panelGrid>
+    </p:fieldset>	
 					
 					
-    </p:dataList>
+   
     </h:form>
     </div>
     </div>
