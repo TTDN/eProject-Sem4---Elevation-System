@@ -1,12 +1,21 @@
 package managerbean;
 
 import java.sql.SQLException;
+
 import util.HttpUtil;
+
 import java.util.List;
+
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
+
+import org.primefaces.event.RowEditEvent;
+
 import dao.ProductDAO;
 import dao.QuotesDAO;
+import dto.ContactUsDTO;
 import dto.ProductDTO;
 import dto.QuotesDTO;
 
@@ -19,6 +28,15 @@ public class QuotesBean {
 	}
 	public void setX(int x) {
 		this.x = x;
+	}
+	
+	private List<QuotesDTO> Lista;
+	
+	public List<QuotesDTO> getLista() {
+		return Lista;
+	}
+	public void setLista(List<QuotesDTO> lista) {
+		Lista = lista;
 	}
 	public List<QuotesDTO> getListquotes() {
 		List<QuotesDTO> ls = new QuotesDAO().FindAllOrder();
@@ -64,5 +82,7 @@ public class QuotesBean {
 HttpUtil.putToSession("quotes", "Thank you very much ! We will send quotes to you soon.");
 		return "Quotes.xhtml?faces-redirect=true";
 	}
+	
+	
 	
 }

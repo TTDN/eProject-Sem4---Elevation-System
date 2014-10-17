@@ -56,7 +56,7 @@ public class QuotesDAO {
 			Connection conn = (Connection) DriverManager
 					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
 			PreparedStatement ps = conn
-					.prepareStatement("UPDATE Quotes SET ProductName=?,FloorNumber=?,Speed=?,HoleSize=?,FullName=?,Address=?,Email=?,Telephone=?,DateOrder=?,Status=?,Cost=?,Payment=? WHERE ID_Quotes=?");
+					.prepareStatement("UPDATE Quotes SET ProductName=?,FloorNumber=?,Speed=?,HoleSize=?,FullName=?,Address=?,Email=?,Telephone=?,DateOrder=?,Status=?,Cost=?,Payment=? WHERE ID_Order=?");
 			ps.setString(1, o.getProductName());
 			ps.setString(2, o.getFloorNumber());
 			ps.setString(3, o.getSpeed());
@@ -110,13 +110,13 @@ public class QuotesDAO {
 			while (rs.next()) {
 				
 				QuotesDTO o = new QuotesDTO();
-				o.setID_Quotes(rs.getInt("ID_Quotes"));
+				o.setID_Order(rs.getInt("ID_Order"));
 				o.setID_Product(rs.getInt("ID_Product"));
 				o.setProductName(rs.getString("ProductName"));
 				o.setFloorNumber(rs.getString("FloorNumber"));
 				o.setSpeed(rs.getString("Speed"));
 				o.setHoleSize(rs.getString("HoleSize"));
-				o.setFloorNumber(rs.getString("FullName"));
+				o.setFullName(rs.getString("FullName"));
 				o.setAddress(rs.getString("Address"));
 				o.setEmail(rs.getString("Email"));
 				o.setTelephone(rs.getString("Telephone"));
@@ -124,6 +124,8 @@ public class QuotesDAO {
 				o.setStatus(rs.getBoolean("Status"));
 				o.setCost(rs.getInt("Cost"));
 				o.setPayment(rs.getString("Payment"));
+				o.setWeight(rs.getString("Weight"));
+				
 				listo.add(o);
 			}
 		} catch (SQLException | ClassNotFoundException e) {
@@ -140,11 +142,11 @@ public class QuotesDAO {
 			Connection conn = (Connection) DriverManager
 					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
 			PreparedStatement ps = conn
-					.prepareStatement("SELECT * FROM Quotes WHERE ID_Quotes = ?");
+					.prepareStatement("SELECT * FROM Quotes WHERE ID_Order = ?");
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
-				o.setID_Quotes(rs.getInt("ID_Quotes"));
+				o.setID_Order(rs.getInt("ID_Order"));
 				o.setProductName(rs.getString("ProductName"));
 				o.setFloorNumber(rs.getString("FloorNumber"));
 				o.setSpeed(rs.getString("Speed"));
@@ -156,7 +158,8 @@ public class QuotesDAO {
 				o.setDateOrder (rs.getDate("DateOrder"));
 				o.setStatus(rs.getBoolean("Status"));
 				o.setCost(rs.getInt("Cost"));
-				o.setPayment(rs.getString("Payment"));		
+				o.setPayment(rs.getString("Payment"));
+				o.setWeight(rs.getString("Weight"));
 			}
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();

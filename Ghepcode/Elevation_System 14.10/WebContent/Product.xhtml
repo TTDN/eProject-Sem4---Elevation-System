@@ -25,9 +25,10 @@
 						<p:dataGrid var="p"  value="#{ProductBean.listproduct}" columns="3"
 							layout="grid" rows="12" paginator="true" id="cars"
 							paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-							rowsPerPageTemplate="6,12,16">
+							rowsPerPageTemplate="6,12,22">
 									<p:panel  style="text-align:center ; height:400px">
-								<h:panelGrid columns="1" >
+								<h:panelGrid
+								 columns="1" >
 										<p>
 											<h:graphicImage style="height:250px;width:100%" library="images/product" name="#{p.images}" />
 										</p>
@@ -35,8 +36,8 @@
 											style="color:black;font-size:25px" />
 										<h:outputLabel id="s2" for="username" value="#{p.description}" />
 										
-											<h:outputLink  value="Detail_Product.xhtml?id=#{p.ID_Product}"  type="submit"
-											class="btn btn-info" style="margin-left: 170px">Details</h:outputLink>
+											<h:commandButton value="Details" action="#{ProductBean.View(p.ID_Product)}" 
+											class="btn btn-info" style="margin-left: 170px"></h:commandButton>
 									</h:panelGrid>
 							</p:panel>
 

@@ -2,7 +2,7 @@ package dto;
 import java.util.Date;
 
 public class QuotesDTO {
-	private int ID_Quotes;
+	private int ID_Order;
 	private int ID_Product;
 	private String ProductName;
 	private String FloorNumber;
@@ -31,11 +31,12 @@ public class QuotesDTO {
 	public void setID_Product(int iD_Product) {
 		ID_Product = iD_Product;
 	}
-	public int getID_Quotes() {
-		return ID_Quotes;
+
+	public int getID_Order() {
+		return ID_Order;
 	}
-	public void setID_Quotes(int iD_Quotes) {
-		ID_Quotes = iD_Quotes;
+	public void setID_Order(int iD_Order) {
+		ID_Order = iD_Order;
 	}
 	public String getProductName() {
 		return ProductName;
@@ -112,12 +113,13 @@ public class QuotesDTO {
 	
 	
 	
-	public QuotesDTO(int iD_Quotes, int iD_Product, String productName,
+	
+	public QuotesDTO(int iD_Order, int iD_Product, String productName,
 			String floorNumber, String speed, String holeSize, String fullName,
 			String address, String email, String telephone, Date dateOrder,
 			Boolean status, Integer cost, String payment, String weight) {
 		super();
-		ID_Quotes = iD_Quotes;
+		ID_Order = iD_Order;
 		ID_Product = iD_Product;
 		ProductName = productName;
 		FloorNumber = floorNumber;
