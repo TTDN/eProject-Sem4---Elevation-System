@@ -1,7 +1,7 @@
 package dto;
 
 public class FeedbackDTO {
-	private int ID_Feebback;
+	private int ID_Feedback;
 	private String Name;
 	private String Email;
 	private String Description;
@@ -9,11 +9,12 @@ public class FeedbackDTO {
 	private String Contents;
 	private String Problem;
 	private String Improvement;
-	public int getID_Feebback() {
-		return ID_Feebback;
+	
+	public int getID_Feedback() {
+		return ID_Feedback;
 	}
-	public void setID_Feebback(int iD_Feebback) {
-		ID_Feebback = iD_Feebback;
+	public void setID_Feedback(int iD_Feedback) {
+		ID_Feedback = iD_Feedback;
 	}
 	public String getName() {
 		return Name;
@@ -57,11 +58,12 @@ public class FeedbackDTO {
 	public void setImprovement(String improvement) {
 		Improvement = improvement;
 	}
-	public FeedbackDTO(int iD_Feebback, String name, String email,
+	
+	public FeedbackDTO(int iD_Feedback, String name, String email,
 			String description, String satisfying, String contents,
 			String problem, String improvement) {
 		super();
-		ID_Feebback = iD_Feebback;
+		ID_Feedback = iD_Feedback;
 		Name = name;
 		Email = email;
 		Description = description;

@@ -38,7 +38,7 @@ public class FeedbackDAO {
 
 	
 
-	public boolean updateFeedback(FeedbackDTO fb) {
+	public static boolean updateFeedback(FeedbackDTO fb) {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
@@ -52,7 +52,7 @@ public class FeedbackDAO {
 			ps.setString(5, fb.getContents());
 			ps.setString(6, fb.getProblem());
 			ps.setString(7, fb.getImprovement());
-			ps.setInt(8, fb.getID_Feebback());
+			ps.setInt(8, fb.getID_Feedback());
 			int kq = ps.executeUpdate();
 			if (kq == 1) {
 				return true;
@@ -92,7 +92,7 @@ public class FeedbackDAO {
 			ResultSet rs = stmt.executeQuery("SELECT * FROM Feedback");
 			while (rs.next()) {
 				FeedbackDTO fb = new FeedbackDTO();
-				fb.setID_Feebback(rs.getInt("ID_Feebback"));
+				fb.setID_Feedback(rs.getInt("ID_Feedback"));
 				fb.setName(rs.getString("Name"));
 				fb.setEmail(rs.getString("Email"));
 				fb.setDescription(rs.getString("Description"));
@@ -108,7 +108,33 @@ public class FeedbackDAO {
 		return listus;
 	}
 
-	public FeedbackDTO findIdFeefback(int id) {
+	
+	public FeedbackDTO  findallFeedbackDTO() {
+		FeedbackDTO listus = new FeedbackDTO();
+		try {
+			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+			Connection conn = (Connection) DriverManager
+					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
+			Statement stmt = (Statement) conn.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM Feedback");
+			while (rs.next()) {
+				FeedbackDTO fb = new FeedbackDTO();
+				fb.setID_Feedback(rs.getInt("ID_Feedback"));
+				fb.setName(rs.getString("Name"));
+				fb.setEmail(rs.getString("Email"));
+				fb.setDescription(rs.getString("Description"));
+				fb.setSatisfying(rs.getString("Satisfying"));
+				fb.setContents(rs.getString("Contents"));
+				fb.setProblem(rs.getString("Problem"));
+				fb.setImprovement(rs.getString("Improvement"));
+			
+			}
+		} catch (SQLException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return listus;
+	}
+	public static FeedbackDTO findIdFeefback(int id) {
 		FeedbackDTO fb = new FeedbackDTO();
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
@@ -119,7 +145,7 @@ public class FeedbackDAO {
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
-				fb.setID_Feebback(rs.getInt("ID_Feebback"));
+				fb.setID_Feedback(rs.getInt("ID_Feedback"));
 				fb.setName(rs.getString("Name"));
 				fb.setEmail(rs.getString("Email"));
 				fb.setDescription(rs.getString("Description"));

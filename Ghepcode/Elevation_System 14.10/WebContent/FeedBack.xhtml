@@ -24,9 +24,9 @@
 						
 							<div class="span5">
 								<p:outputLabel for="fullname" value="FullName: " />
-								<h:inputText class="input-block-level" id="fullname" required="true"
+								<h:inputText class="input-block-level" id="fullname" required="true" requiredMessage="Fullname not required"
 									placeholder="Your Full Name:" value="#{insertfeedback.fb.name}">
-									<f:validateRegex pattern="[\w\.-]*[a-zA-Z]" />
+									<f:validateRegex pattern="[\w\.-]*[a-zA-Z ]" />
 								</h:inputText>
 								  <h:message for="fullname" style="color:red" />
 								
@@ -73,12 +73,21 @@
 								 
 								
 								 
-								   <p:outputLabel for="contents" value="Contents:" />
-								<h:inputTextarea class="input-block-level" id="contents" required="true" requiredMessage="Contents not required"
-									placeholder="Contents"
-									value="#{insertfeedback.fb.contents}" style="width:500px ; height:200px">
-								</h:inputTextarea>
-								 <h:message for="contents" style="color:red" />
+								
+							
+							
+ <h3>Remaining Chars</h3>
+    <p:inputTextarea rows="5" cols="30" counter="display" maxlength="500" counterTemplate="{0} characters remaining." autoResize="false"
+    class="input-block-level" id="contents"  required="true" requiredMessage="Contents not required" 
+    placeholder="Contents"
+	value="#{insertfeedback.fb.contents}" style="width:500px ; height:200px"  
+     />
+     
+      <h:message for="contents" style="color:red" />
+     <p> 
+    <h:outputText id="display" />							
+		</p>					
+							
 							
 						<h:commandButton   class="btn btn-primary btn-large pull-right" value="Send Message" action="#{insertfeedback.insertFB}"></h:commandButton>
 						</div>
