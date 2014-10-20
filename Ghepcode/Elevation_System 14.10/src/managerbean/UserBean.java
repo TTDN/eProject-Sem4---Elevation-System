@@ -35,7 +35,12 @@ public class UserBean {
 		// TODO Auto-generated constructor stub
 	}
 	public String getSession(){
+		System.out.println(HttpUtil.getFromSession("username"));
 		return String.valueOf(HttpUtil.getFromSession("username"));
+	}
+	public static String getSessionId(){
+		System.out.println(HttpUtil.getFromSession("id"));
+		return String.valueOf(HttpUtil.getFromSession("id"));
 	}
 	public String DestroySession(){
 		HttpUtil.putToSession("username", null);
@@ -58,6 +63,11 @@ public String Login(){
 		if(u == true){
 			System.out.println("Co");
 			HttpUtil.putToSession("username", us.getUserName());
+			UserDTO user=new UserDTO();
+			
+			user=UserDAO.findUser(us.getUserName());
+			
+			HttpUtil.putToSession("id", user.getID_User());
 			return "Index?faces-redirect=true";
 		}else{
 			System.out.println("Ko");
@@ -65,4 +75,5 @@ public String Login(){
 		}
 		return null;
 	}
+
 }
