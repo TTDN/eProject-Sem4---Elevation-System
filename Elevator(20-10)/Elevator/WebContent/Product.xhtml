@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui" >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+<h:body>
+<ui:composition template="./MasterPage.xhtml">
+
+		<ui:define name="content" >
+		<section id="portfolio">
+        <div class="container">
+            <div class="center">
+               <h2>Product</h2>
+               <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+            </div>
+         <div class="row">
+                <div class="portfolio-items">
+                 <h:form id="form">
+						<p:dataGrid var="p"  value="#{ProductBean.listproduct}" columns="3"
+							layout="grid" rows="12" paginator="true" id="cars"
+							paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+							rowsPerPageTemplate="6,12,22">
+									<p:panel  style="text-align:center ; height:430px">
+								<h:panelGrid
+								 columns="1" >
+										<p>
+											<h:graphicImage style="height:250px;width:100%" library="images/product" name="#{p.images}" />
+										</p>
+										<h:outputLabel id="s1" for="username" value="#{p.name}"
+											style="color:black;font-size:25px" />
+										<h:outputLabel id="s2" for="username" value="#{p.description}" />
+										
+											<h:commandButton value="Details" action="#{ProductBean.View(p.ID_Product)}" 
+											class="btn btn-info" ></h:commandButton>
+									</h:panelGrid>
+							</p:panel>
+						</p:dataGrid>					
+					</h:form>
+                    </div>
+                   </div>
+        </div>
+    </section><!--/#portfolio-item-->
+		
+		
+		
+		
+		
+		
+		
+		</ui:define>
+</ui:composition>
+
+</h:body>
+</html>

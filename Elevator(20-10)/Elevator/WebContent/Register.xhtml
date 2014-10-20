@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<!-- 	xmlns:p="http://xmlns.jcp.org/jsf/passthrough" -->
+	
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+<h:body>
+<ui:composition template="./MasterPage.xhtml"> 
+
+ 		<ui:define name="content" > 
+ 		<div class="container" style="background-image: url('#{resource['images/back1.png']}'); width: 100%;">
+ 		<div style="width:800px; margin-left:250px; margin-right: 250px;">
+ 		<h2 style="font-size: 57px;margin-left: 300px;margin-bottom: 50px; color:#D898B5;">Register</h2>
+ 		<div id="a" style="border:soild;border-color:red;">
+    <h:form id="form" style="color:#EDE6E6;" >
+  <!-- Name -->
+    <div class="container" style="width: 100%">
+	    <div class="row">
+	    <!-- Name -->
+	    	<div class="col-md-4"><p:outputLabel for="username"  value="Username " /></div>
+	    	<div class="col-md-8"><h:inputText class="" id="username"
+								required="true" p:placeholder="Username" requiredMessage="please do not leave blank"
+								value="#{UserBean.us.userName}" style="width:50%;">
+								<f:validateLength minimum="6" />
+							</h:inputText>				
+								<h:message for="username" style="color:red;" /></div>
+				<!-- Password -->
+				<br></br>
+					<br></br>
+	    	<div class="col-md-4">
+	    		<p:outputLabel for="password" value="Password " />
+	    	</div>
+	    	<div class="col-md-8">
+	    		<h:inputSecret class="" id="password"
+								required="true" p:placeholder="write something" requiredMessage="please do not leave blank"
+								value="#{UserBean.us.passWord}" style="width:50%;">
+								<f:validateLength minimum="6" />
+							</h:inputSecret>					
+ 				<h:message for="password" style="color:red" />
+	    	</div><br></br> <br></br>
+	    	<!-- fullname -->
+	    	<div class="col-md-4">
+	    		<p:outputLabel for="fullName" value="Fullname " />
+	    	</div>
+	    	<div class="col-md-8">
+	    		<h:inputText id="fullName"
+								required="true" p:placeholder="Full Name" requiredMessage="please do not leave blank"
+								value="#{UserBean.us.fullName}" style="width:50%;">
+								<f:validateLength minimum="6" />
+							</h:inputText>	
+		
+ 				<h:message for="fullName" style="color:red" />
+	    	</div><br></br> <br></br>
+	    	
+	    	<!-- email -->
+	    	<div class="col-md-4">
+	    		<p:outputLabel for="email" value="Email " />
+	    	</div>
+	    	<div class="col-md-8">
+	    		<h:inputText  id="email" class="input-xlarge" style="width:50%;" required="true" requiredMessage="Email not required"
+									placeholder="Your Last Name" value="#{UserBean.us.email}">
+									<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+		</h:inputText>
+ 				<h:message for="email" style="color:red" />
+	    	</div><br></br> <br></br>
+	    	<!-- address -->
+	    	<div class="col-md-4">
+	    		<p:outputLabel for="address" value="Address " />
+	    	</div>
+	    	<div class="col-md-8">
+	    		<h:inputTextarea class="input-xlarge" style="width:50%;" id="address" 
+									placeholder="Description"
+								value="#{UserBean.us.address}">
+								</h:inputTextarea>
+	  			<h:message for="address" style="color:red" />
+	    	</div>
+	    	<br></br>
+	 			<br></br>
+	 			<br></br>
+	    	<div class="col-md-4">
+	    		<p:outputLabel for="company" value="Company Name " />
+	    	</div>
+	    	<div class="col-md-8"><h:inputText class="input-xlarge" id="company" 
+									placeholder="Improvement" style="width:50%;"
+									value="#{UserBean.us.company}">
+								</h:inputText>
+	 			<h:message for="company" style="color:red" />
+	 		</div>
+	 		<!-- sif --><br></br>
+	 		<br></br>
+	    	<h:commandButton class="btn btn-primary btn-large pull-right" style="margin-right: 300px;
+width: 20%;" value="Register" action="#{UserBean.register}"></h:commandButton>
+	<br></br>
+	<br></br>
+	<br></br>
+	<br></br>
+	<br></br>
+	<br></br>
+		</div>
+	</div>
+	
+ </h:form>
+  </div>
+    </div>
+	</div>
+ 		
+		</ui:define>
+</ui:composition>
+</h:body>
+</html>

@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    <body>
+
+        <ui:composition template="./AdminMaster.xhtml">
+
+            <ui:define name="content" >
+                 <div style="background-color: white;margin:45px 0px 100px 300px;position: absolute;border-radius: 10px;padding: 50px">
+                    <h:form>
+                    	<h:outputLabel value="Username"></h:outputLabel>
+                    	<h:inputText id="txtUsername" value="#{AdminBean.ad.userName}"></h:inputText>
+                    	<c:choose>
+                            	<c:when test="#{AdminBean.session != 'null'}">
+                            		<h:outputLabel value="#{AdminBean.session}"></h:outputLabel>
+                            	</c:when>
+      						</c:choose>
+                    	<br/>
+                    	<h:outputLabel value="Password"></h:outputLabel>
+                    	<h:inputSecret id="txtPassword" value="#{AdminBean.ad.passWord}"></h:inputSecret>
+                    	<br/>
+                    	<h:outputLabel value="Re-Password"></h:outputLabel>
+                    	<h:inputSecret id="txtRePassword" value="#{AdminBean.ad.passWord}"></h:inputSecret>
+                    	<br/>
+                    	<h:outputLabel value="Fullame"></h:outputLabel>
+                    	<h:inputText id="txtFullname" value="#{AdminBean.ad.fullname}"></h:inputText>
+                    	<br/>
+                    	<h:outputLabel value="Phone"></h:outputLabel>
+                    	<h:inputText id="txtPhone" value="#{AdminBean.ad.phone}"></h:inputText>
+                    	<br/>
+                    	<h:outputLabel value="Address"></h:outputLabel>
+                    	<h:inputText id="txtAddress" value="#{AdminBean.ad.address}"></h:inputText>
+                    	<br/>
+                    	<h:outputLabel value="Email"></h:outputLabel>
+                    	<h:inputText id="txtEmail" value="#{AdminBean.ad.email}"></h:inputText>
+                    	<br/>
+                    	<h:commandButton value="Add" action="#{AdminBean.AddAdmin}"></h:commandButton>
+                    </h:form>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

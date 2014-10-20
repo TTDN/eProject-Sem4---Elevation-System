@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+<body>
+	<ui:composition template="./AdminMaster.xhtml">
+
+		<ui:define name="content">
+			<div
+				style="background-color: white; margin: 45px 0px 100px 300px; position: absolute; border-radius: 10px">
+				
+			<h:form id="form">
+			 <p:growl id="msgs" showDetail="true"/>
+			<p:dataTable id="cars2" var="a" value="#{QuotesBean.listquotes}" editable="true" editMode="cell" widgetVar="cellCars"
+			rows="10" paginator="true" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15">
+       <f:facet name="header">
+           Cell Editing with Click and RightClick
+       </f:facet>
+ 
+       <p:ajax event="cellEdit" listener="#{QuotesBean.listquotes}" update=":form:msgs" />
+ 
+       <p:column headerText="Date Order">
+              <p:cellEditor>
+                  <f:facet name="output"><h:outputText value="#{a.dateOrder}"></h:outputText></f:facet>
+                  <f:facet name="input"><p:inputText id="modelInput" value="#{a.dateOrder}" style="width:96%"/></f:facet>
+              </p:cellEditor>
+          </p:column>
+ 
+          <p:column headerText="Product Name">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{a.productName}" /></f:facet>
+               <f:facet name="input"><p:inputText value="#{a.productName}" style="width:96%" label="Year"/></f:facet>
+           </p:cellEditor>
+       </p:column>
+ 
+       <p:column headerText="Weight">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{a.weight}" /></f:facet>
+              <f:facet name="input"><p:inputText value="#{a.weight}" style="width:96%" label="Year"/></f:facet>
+              </p:cellEditor>
+       </p:column>
+          <p:column headerText="Hole Size">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{a.holeSize}" /></f:facet>
+              <f:facet name="input"><p:inputText value="#{a.holeSize}" style="width:96%" label="Year"/></f:facet>
+              </p:cellEditor>
+       </p:column>
+          <p:column headerText="Speed">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{a.speed}" /></f:facet>
+              <f:facet name="input"><p:inputText value="#{a.speed}" style="width:96%" label="Year"/></f:facet>
+              </p:cellEditor>
+       </p:column>
+          <p:column headerText="Customer Name">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{a.fullName}" /></f:facet>
+              <f:facet name="input"><p:inputText value="#{a.fullName}" style="width:96%" label="Year"/></f:facet>
+              </p:cellEditor>
+       </p:column>
+          <p:column headerText="Email">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{a.email}" /></f:facet>
+              <f:facet name="input"><p:inputText value="#{a.email}" style="width:96%" label="Year"/></f:facet>
+              </p:cellEditor>
+       </p:column>
+    <p:column headerText="Cost">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{a.cost}" /></f:facet>
+              <f:facet name="input"><p:inputText value="#{a.cost}" style="width:96%" label="Year"/></f:facet>
+              </p:cellEditor>
+       </p:column>
+          <p:column headerText="Payment">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{a.payment}" /></f:facet>
+              <f:facet name="input"><p:inputText value="#{a.payment}" style="width:96%" label="Year"/></f:facet>
+              </p:cellEditor>
+       </p:column>
+          <p:column headerText="Status">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{a.status}" /></f:facet>
+               <f:facet name="input">
+                   <h:selectOneMenu value="#{QuotesBean.x}" style="width:100%">
+                       <f:selectItems value="#{QuotesBean.listquotes}" var="b" itemLabel="No send" itemValue="false" />
+                       <f:selectItems value="#{QuotesBean.listquotes}" var="b" itemLabel="Sent" itemValue="true" />
+                   </h:selectOneMenu>
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
+       
+   </p:dataTable>
+		</h:form>
+			</div>
+		</ui:define>
+</ui:composition>
+</body>
+</html>
