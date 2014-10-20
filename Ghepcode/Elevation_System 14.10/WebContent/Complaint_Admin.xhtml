@@ -12,20 +12,48 @@
 	<ui:composition template="./AdminMaster.xhtml">
 
 		<ui:define name="content">
-			<p:dataTable var="x" value="#{complaintBean.listComplaintDTOs}" >
+			<p:dataTable var="x" value="#{complaintBean.listComplaintDTOs}">
+				<p:column headerText="Id">
+					<h:outputText value="#{x.ID_User}" />
+
+				</p:column>
+
+				<p:column headerText="Contents:">
+					<h:outputText value="#{x.contents}" />
+				</p:column>
+
 			</p:dataTable>
-			<p:dataTable var="y" value="#{complaintBean.lu}" >
-				<p:column headerText="Full Name" >
+			<p:dataTable var="y" value="#{complaintBean.lu}">
+				<p:column headerText="abc">
 					<h:outputText value="#{y.fullName}" />
 				</p:column>
-				<p:column headerText="Email">
+				<p:column headerText="email">
 					<h:outputText value="#{y.email}" />
-				</p:column>
-				<p:column headerText="Contents">
-					<h:outputText value="#{y.content}" />
 				</p:column>
 			</p:dataTable>
 
+
+			<table>
+
+
+				<ui:repeat value="#{complaintBean.listComplaintDTOs}" var="x">
+					<tr>
+						<td><h:outputText value="#{x.contents}" /></td>
+					</tr>
+
+				</ui:repeat>
+
+
+				<ui:repeat value="#{complaintBean.lu}" var="y">
+					<tr>
+						<td><h:outputText value="#{y.email}" /></td>
+					</tr>
+
+				</ui:repeat>
+
+
+
+			</table>
 
 
 

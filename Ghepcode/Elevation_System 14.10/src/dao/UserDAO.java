@@ -217,7 +217,7 @@ public class UserDAO {
 				Connection conn = (Connection) DriverManager
 						.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
 				PreparedStatement ps = conn
-						.prepareStatement("SELECT * FROM [User] WHERE ID_User = ? ");
+						.prepareStatement("SELECT * FROM [User] WHERE ID_User = ?");
 				ps.setInt(1, c.getID_User());
 				System.out.println("id " + c.getID_User());
 
@@ -232,9 +232,8 @@ public class UserDAO {
 					us.setEmail(rs.getString("Email"));
 					us.setAddress(rs.getString("Address"));
 					us.setCompany(rs.getString("Company"));
-					us.setContent(c.getContents());
 					listus.add(us);
-					
+					System.out.println("us.f" + us.getFullName());
 				}
 			} catch (SQLException | ClassNotFoundException e) {
 				e.printStackTrace();
