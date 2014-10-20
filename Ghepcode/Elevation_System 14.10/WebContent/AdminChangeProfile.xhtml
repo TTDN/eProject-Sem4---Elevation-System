@@ -11,6 +11,7 @@
 
 		<ui:define name="content">
 		<h:link value="Change Password" outcome="AdminChangePassword"></h:link>
+		 <div style="background-color: white;margin:45px 0px 100px 300px;position: absolute;border-radius: 10px;padding: 50px">             
 			<h:form>
 				<h:inputHidden value="#{AdminBean.sessionID_Admin}"></h:inputHidden>
 				<h:outputLabel value="Fullname"></h:outputLabel>
@@ -27,6 +28,7 @@
 				<br></br>
 				<h:commandButton action="#{AdminBean.ChangeProfile}" value="Change Password"></h:commandButton>
 			</h:form>
+			</div>
 		</ui:define>
 
 	</ui:composition>
