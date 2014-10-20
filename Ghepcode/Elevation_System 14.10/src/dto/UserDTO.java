@@ -9,6 +9,14 @@ private String FullName;
 private String Email;
 private String Address;
 private String Company;
+private String Content;
+
+public String getContent() {
+	return Content;
+}
+public void setContent(String content) {
+	Content = content;
+}
 public int getID_User() {
 	return ID_User;
 }
@@ -51,8 +59,9 @@ public String getCompany() {
 public void setCompany(String company) {
 	Company = company;
 }
+
 public UserDTO(int iD_User, String userName, String passWord, String fullName,
-		String email, String address, String company) {
+		String email, String address, String company, String content) {
 	super();
 	ID_User = iD_User;
 	UserName = userName;
@@ -61,6 +70,7 @@ public UserDTO(int iD_User, String userName, String passWord, String fullName,
 	Email = email;
 	Address = address;
 	Company = company;
+	Content = content;
 }
 public UserDTO() {
 	super();

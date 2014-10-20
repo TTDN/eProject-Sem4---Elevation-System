@@ -58,19 +58,17 @@ public class ComplaintBean {
 		}
 
 	}
+	
+	
 
 	public List<ComplaintDTO> getListComplaintDTOs() {
 		lcpl = new ComplaintDAO().findallComplaint();
-System.out.println("size" +lcpl.size());
-		
 		return lcpl;
 	}
 	
-	public List<UserDTO> getlu(){
+	public List<UserDTO> getLu(){
 		List<UserDTO> us = new UserDAO().findid(lcpl);
-		for (UserDTO userDTO : us) {
-			//System.out.println(userDTO.getFullName() + " " + userDTO.getEmail());
-		}
+		
 		
 		return us;
 	}
