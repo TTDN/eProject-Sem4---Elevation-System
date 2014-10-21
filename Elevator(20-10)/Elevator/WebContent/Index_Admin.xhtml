@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+<h:body>
+	<ui:composition template="./AdminMaster.xhtml">
+
+		<ui:define name="content">
+			<div
+				style="background-color: white; margin: 45px 0px 100px 300px; position: absolute; border-radius: 10px">
+				<h:form id="form">
+					<p:panel id="panel" header="ContactInfo Form"
+						styleClass="panel panel-primary">
+
+						<p>
+							<h3 style="float: left; padding-right: 100px">Address :</h3>
+
+
+							<h:inputText id="address" required="true"
+								requiredMessage="Address not required"
+								placeholder="Your Full Name:"
+								value="#{ContactInforBean.ct.address}"
+								style="height:40px;width:60%;">
+								<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]" />
+							</h:inputText>
+							<br />
+							<h:message for="address" style="color:red; margin-left: 270px;" />
+
+						</p>
+						<p>
+							<h3 style="float: left; padding-right: 49px">Mobilephone :</h3>
+							<h:inputText id="mobilephone" required="true"
+								requiredMessage="Mobiphone not required"
+								placeholder="Your Full Name:"
+								value="#{ContactInforBean.ct.mobilePhone}"
+								style="height:40px;width:60%;">
+								<f:validateRegex pattern="[\w\.-]*[0-9_]" />
+								<f:validateLength minimum="6" />
+								<f:validateLength maximum="30" />
+							</h:inputText>
+							<br />
+							<h:message for="mobilephone"
+								style="color:red; margin-left: 270px;" />
+
+						</p>
+						<p>
+							<h3 style="float: left; padding-right: 79px">Telephone :</h3>
+							<h:inputText id="telephone" required="true"
+								requiredMessage="Telephone not required"
+								placeholder="Your Full Name:"
+								value="#{ContactInforBean.ct.telePhone}"
+								style="height:40px;width:60%;">
+								<f:validateRegex pattern="[\w\.-]*[0-9_]" />
+								<f:validateLength minimum="6" />
+								<f:validateLength maximum="30" />
+							</h:inputText>
+							<br />
+							<h:message for="telephone" style="color:red; margin-left: 270px;" />
+
+						</p>
+						<p>
+							<h3 style="float: left; padding-right: 157px">Fax :</h3>
+							<h:inputText id="fax" required="true"
+								requiredMessage="Fax not required" placeholder="Your Full Name:"
+								value="#{ContactInforBean.ct.FAX}"
+								style="height:40px;width:60%;">
+								<f:validateRegex pattern="[\w\.-]*[0-9_]" />
+								<f:validateLength minimum="6" />
+								<f:validateLength maximum="30" />
+							</h:inputText>
+							<br />
+							<h:message for="fax" style="color:red; margin-left: 270px;" />
+
+						</p>
+						<p>
+							<h3 style="float: left; padding-right: 135px">Email :</h3>
+							<h:inputText id="Email" required="true"
+								requiredMessage="Email not required"
+								placeholder="Your Full Name:"
+								value="#{ContactInforBean.ct.email}"
+								style="height:40px;width:60%;">
+								<f:validateRegex
+									pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+
+							</h:inputText>
+							<br />
+							<h:message for="Email" style="color:red; margin-left: 270px;" />
+
+						</p>
+						<p>
+							<h3 style="float: left; padding-right: 128px">Skype :</h3>
+							<h:inputText id="Sky" required="true"
+								requiredMessage="Skype not required"
+								placeholder="Your Full Name:"
+								value="#{ContactInforBean.ct.skype}"
+								style="height:40px;width:60%;">
+								<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+
+							</h:inputText>
+							<h:message for="Sky" style="color:red; margin-left: 270px;" />
+						</p>
+						<p>
+							<h3 style="float: left; padding-right: 128px">Yahoo :</h3>
+							<h:inputText id="Yahoo" required="true"
+								requiredMessage="Yahoo not required"
+								placeholder="Your Full Name:"
+								value="#{ContactInforBean.ct.yahoo}"
+								style="height:40px;width:60%;">
+								<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+
+							</h:inputText>
+							<h:message for="Yahoo" style="color:red; margin-left: 270px;" />
+						</p>
+						<h:commandButton class="btn btn-success btn-lg btn-block"
+							style="width: 59%;height: 50px;margin-left: 140px;"
+							action="#{ContactInforBean.updateCTIF}"
+							value="Update ContactInfo" />
+						<br></br>
+					</p:panel>
+				</h:form>
+				
+				
+			</div>
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>

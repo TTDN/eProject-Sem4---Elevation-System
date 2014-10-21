@@ -1,3 +1,10 @@
+<<<<<<< HEAD
 /dao/
 /managerbean/
 /dto/
+=======
+/dao
+/dto
+/managerbean
+/util
+>>>>>>> origin/master

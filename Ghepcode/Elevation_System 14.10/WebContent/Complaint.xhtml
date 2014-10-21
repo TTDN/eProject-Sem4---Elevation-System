@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui" >
+<h:body>
+
+	<ui:composition template="./MasterPage.xhtml">
+
+		<ui:define name="content" >
+			
+			<section id="contact-page" class="container">
+			<div class="row-fluid">
+
+				<div class="span8">
+					
+					<div class="status alert alert-success" style="display: none"></div>
+						<h:form id="main-contact-form" name="contact-form" >
+						<p:panel id="panel" header="Complaint" styleClass="panel panel-primary" >
+						
+						<div class="row-fluid">
+						
+							<div class="span5">
+							
+								
+								
+								
+								
+								
+							
+							
+ <h3>Contents:</h3>
+    <p:inputTextarea rows="5" cols="30" counter="display" maxlength="500" counterTemplate="{0} characters remaining." autoResize="false"
+    class="input-block-level" id="contents"  required="true" requiredMessage="Contents not required" 
+    placeholder="Contents"
+	value="#{complaintBean.cpl.contents}" style="width:500px ; height:200px"  
+     />
+     
+      <h:message for="contents" style="color:red" />
+     <p> 
+    <h:outputText id="display" />							
+		</p>					
+							
+							
+						<h:commandButton   class="btn btn-primary btn-large pull-right" value="Send Message" action="#{complaintBean.insertCPL}"></h:commandButton>
+						</div>
+						</div>
+						
+						
+						
+</p:panel>
+					</h:form>
+				</div>
+				<br></br> <br></br> <br></br>
+				
+			</div>
+			<br></br>
+			<br></br>
+			</section>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
