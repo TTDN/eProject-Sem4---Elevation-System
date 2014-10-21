@@ -11,11 +11,10 @@ import java.util.List;
 
 import dto.ProjectDTO;
 
-public class ProjectDAO{
-	
-	public boolean InsertProject(ProjectDTO p){
-		
-		try{
+public class ProjectDAO {
+
+	public static boolean InsertProject(ProjectDTO p) {
+		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
 					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
@@ -35,10 +34,10 @@ public class ProjectDAO{
 		}
 		return false;
 	}
-	
-	public boolean UpdateProject(ProjectDTO p){
-		
-		try{
+
+	public static boolean UpdateProject(ProjectDTO p) {
+
+		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
 					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
@@ -58,9 +57,9 @@ public class ProjectDAO{
 		}
 		return false;
 	}
-	
-	public boolean DeleteProject(int id){
-		
+
+	public boolean DeleteProject(int id) {
+
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
@@ -78,19 +77,19 @@ public class ProjectDAO{
 		}
 		return false;
 	}
-	
-	public List<ProjectDTO> FindAllProject(){
-		
+
+	public List<ProjectDTO> FindAllProject() {
+
 		ArrayList<ProjectDTO> listproject = new ArrayList<ProjectDTO>();
-		
-		try{
+
+		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
 					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
 			Statement stmt = (Statement) conn.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM Project");
 			while (rs.next()) {
-				
+
 				ProjectDTO p = new ProjectDTO();
 				p.setName("Name");
 				p.setContents("Contents");
@@ -98,10 +97,34 @@ public class ProjectDAO{
 				p.setDescription("Description");
 				listproject.add(p);
 			}
-		}catch (SQLException | ClassNotFoundException e) {
+		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		
+
 		return listproject;
+	}
+
+	public static ProjectDTO FindProjectByID(int id) {
+		ProjectDTO p = new ProjectDTO();
+		try {
+			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+			Connection conn = (Connection) DriverManager
+					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
+			Statement stmt = (Statement) conn.createStatement();
+			PreparedStatement ps = conn
+					.prepareStatement("SELECT * FROM Project WHERE ID_Project = ?");
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+
+				p.setName("Name");
+				p.setContents("Contents");
+				p.setImages("Images");
+				p.setDescription("Description");
+			}
+		} catch (SQLException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return p;
 	}
 }

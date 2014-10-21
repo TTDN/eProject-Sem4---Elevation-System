@@ -2,11 +2,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<head>
 
-<h:head>
-	<title>CKEditor JSF Component Test</title>
-</h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Edit Project</title>
+</head>
 <script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
 <script type="text/javascript">
 	tinymce
@@ -31,11 +34,25 @@
 			});
 </script>
 <h:body>
-	<h:form>
-		<h:inputTextarea name="content" style="width: 50%" value="#{ProjectBean.content}"></h:inputTextarea>
-		<br/>
-		<h:commandButton value="Show!" action="#{ProjectBean.Show}"></h:commandButton>
+	<h:form enctype="multipart/form-data">
+		<h:outputLabel value="Project Name: "></h:outputLabel>
+		<h:inputText value="#{ProjectBean.projectByID.name}"></h:inputText>
+		<br />
+		image
+		<br />
+		<h:outputLabel value="Cover: "></h:outputLabel>
+		<p:fileUpload value="#{ProjectBean.file}" disabled="false"
+			mode="simple"
+			allowTypes="/(\.|\/)(jpg|jpeg|png|PNG|JPG|JPEG)$/"
+			sizeLimit="100000" description="Select Images" multiple="false" />
+		<br />
+		<h:outputLabel value="Description: "></h:outputLabel>
+		<h:inputText value="#{ProjectBean.projectByID.description}"></h:inputText>
+		<br />
+		<h:inputTextarea name="content" style="width: 50%"
+			value="#{ProjectBean.projectByID.contents}"></h:inputTextarea>
+		<br />
+		<h:commandButton value="Submit" action="#{ProjectBean.EditProject}"></h:commandButton>
 	</h:form>
-	<h:outputText value="#{ProjectBean.content}" escape="false"></h:outputText>
 </h:body>
 </html>
