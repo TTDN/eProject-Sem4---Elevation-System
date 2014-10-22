@@ -7,7 +7,9 @@ import javax.faces.bean.ManagedBean;
 import org.primefaces.model.UploadedFile;
 
 import util.HttpUtil;
+import dao.ProductDAO;
 import dao.ProjectDAO;
+import dto.ProductDTO;
 import dto.ProjectDTO;
 
 @ManagedBean(name = "ProjectBean")
@@ -19,7 +21,7 @@ public class ProjectBean {
 	private String content;
 	private UploadedFile file;
 
-	//Session InsertProject
+	// Session InsertProject
 	public String getSessionInsertProject() {
 		return String.valueOf(HttpUtil
 				.getFromSession("InsertProjectNotification"));
@@ -29,8 +31,8 @@ public class ProjectBean {
 		HttpUtil.putToSession("InsertProjectNotification", null);
 		return null;
 	}
-	
-	//Session UpdateProject
+
+	// Session UpdateProject
 	public String getSessionUpdateProject() {
 		return String.valueOf(HttpUtil
 				.getFromSession("InsertProjectNotification"));
@@ -41,16 +43,17 @@ public class ProjectBean {
 		return null;
 	}
 
-	//Session IDProject
+	// Session IDProject
 	public static String getSessionIDProject() {
-		return String.valueOf(HttpUtil
-				.getFromSession("IDProject"));
+		return String.valueOf(HttpUtil.getFromSession("IDProject"));
 	}
 
 	public String DestroySessionIDProject() {
 		HttpUtil.putToSession("IDProject", null);
 		return null;
 	}
+
+	//Upload image.
 	public UploadedFile getFile() {
 		return file;
 	}
@@ -118,17 +121,23 @@ public class ProjectBean {
 
 		return null;
 	}
-	
-	public String GetIDProject(int id){
-		
+
+	public String GetIDProject(int id) {
+
 		HttpUtil.putToSession("IDProject", id);
 		return "ProjectEdit";
 	}
-	
-	public ProjectDTO getProjectByID(){
-		
+
+	public ProjectDTO getProjectByID() {
+
 		String id = getSessionIDProject();
 		ProjectDTO p = ProjectDAO.FindProjectByID(Integer.parseInt(id));
 		return p;
+	}
+
+	public String EditProject(int id){
+		
+		HttpUtil.putToSession("IDProject", id);
+		return "ProjectEdit";
 	}
 }

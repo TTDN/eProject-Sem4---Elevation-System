@@ -15,21 +15,22 @@
 			<div
 				style="background-color: white; margin: 45px 0px 100px 300px; position: absolute; border-radius: 10px">
 				<h:form>
-				<p:dataTable var="a" value="#{ProductBean.listproduct}"
-					editable="true">
+					<p:dataTable var="a" value="#{ProductBean.listproduct}"
+						editable="true">
 
-					<p:column>
-						<h:outputText value="#{a.ID_Product}" />
-					</p:column>
-					<p:column headerText="Name Product">
-						<h:outputText value="#{a.name}" />
-					</p:column>
-					<p:column headerText="Name Product">
-					<h:commandButton value="Edit" class="btn btn-primary" action="#{ProductBean.Edit(a.ID_Product)}"></h:commandButton>
-					</p:column>
-				</p:dataTable>
+						<p:column>
+							<h:outputText value="#{a.ID_Product}" />
+						</p:column>
+						<p:column headerText="Name Product">
+							<h:outputText value="#{a.name}" />
+						</p:column>
+						<p:column headerText="Name Product">
+							<h:commandButton value="Edit" class="btn btn-primary"
+								action="#{ProductBean.Edit(a.ID_Product)}"></h:commandButton>
+						</p:column>
+					</p:dataTable>
 
-</h:form>
+				</h:form>
 
 
 			</div>
