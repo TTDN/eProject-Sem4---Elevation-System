@@ -39,10 +39,12 @@
 				<h:inputText value="#{ProjectBean.p.name}"></h:inputText>
 				<br />
 				<h:outputLabel value="Cover: "></h:outputLabel>
-				<p:fileUpload value="#{ProjectBean.file}" disabled="false"
-					mode="simple"
-					allowTypes="/(\.|\/)(gif|jpg|jpeg|gif|png|PNG|GIF|JPG|JPEG)$/"
-					sizeLimit="100000" description="Select Images" multiple="false" />
+				<p:fileUpload value="#{fileUploadManagedBean.file}" mode="advanced"
+					invalidSizeMessage="Invalid Size"
+					invalidFileMessage="Invalid File Type"
+					allowTypes="/(\.|\/)(gif|jpe?g|png)$/" multiple="false"
+					sizeLimit="4096"
+					fileUploadListener="#{fileUploadManagedBean.fileUploadListener}"></p:fileUpload>
 				<br />
 				<h:outputLabel value="Description: "></h:outputLabel>
 				<h:inputText value="#{ProjectBean.p.description}"></h:inputText>
@@ -52,7 +54,8 @@
 				<br />
 				<h:commandButton value="Submit" action="#{ProjectBean.AddProject}"></h:commandButton>
 			</h:form>
-			<h:outputLabel style="color: red" value="#{ProjectBean.sessionInsertProject}"></h:outputLabel>
+			<h:outputLabel style="color: red"
+				value="#{ProjectBean.sessionInsertProject}"></h:outputLabel>
 		</ui:define>
 	</ui:composition>
 </h:body>
