@@ -5,6 +5,21 @@ public class ComplaintDTO {
 	private int ID_User;
 	private int ID_Order;
 	private String Contents;
+	private String Fullname;
+	private String Email;
+	
+	public String getFullname() {
+		return Fullname;
+	}
+	public void setFullname(String fullname) {
+		Fullname = fullname;
+	}
+	public String getEmail() {
+		return Email;
+	}
+	public void setEmail(String email) {
+		Email = email;
+	}
 	public int getID_Complaint() {
 		return ID_Complaint;
 	}
@@ -29,13 +44,16 @@ public class ComplaintDTO {
 	public void setContents(String contents) {
 		Contents = contents;
 	}
+	
 	public ComplaintDTO(int iD_Complaint, int iD_User, int iD_Order,
-			String contents) {
+			String contents, String fullname, String email) {
 		super();
 		ID_Complaint = iD_Complaint;
 		ID_User = iD_User;
 		ID_Order = iD_Order;
 		Contents = contents;
+		Fullname = fullname;
+		Email = email;
 	}
 	public ComplaintDTO() {
 		super();

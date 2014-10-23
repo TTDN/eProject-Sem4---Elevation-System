@@ -8,20 +8,25 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import managerbean.UserBean;
 import dto.ComplaintDTO;;
 
 public class ComplaintDAO {
-	public boolean InsertComplaint(ComplaintDTO cp) {
+	public static boolean InsertComplaint(ComplaintDTO cp) {
+		if (UserBean.getSessionId()=="0"){
+			
+		}
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			Connection conn = (Connection) DriverManager
 					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
 			PreparedStatement ps = conn
 					.prepareStatement("INSERT INTO Complaint (ID_User,Contents) VALUES(?,?)");
-		
-			ps.setInt(1, cp.getID_User());
+			System.out.println(Integer.parseInt(UserBean.getSessionId()));
+			System.out.println(UserBean.getSessionId());
+			ps.setInt(1, Integer.parseInt(UserBean.getSessionId()));
 			ps.setString(2, cp.getContents());
-		
+			
 		
 			int kq = ps.executeUpdate();
 			if (kq == 1) {
@@ -30,6 +35,7 @@ public class ComplaintDAO {
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
+
 		return false;
 	}
 
