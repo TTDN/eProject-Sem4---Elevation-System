@@ -40,13 +40,13 @@
 				<script>
 					CKEDITOR.replace('editor1');
 				</script>
-  <h:inputTextarea id="txtHidden" value="#{ProductBean.p.contents}"></h:inputTextarea>
+  <h:inputHidden id="txtHidden" value="#{ProductBean.p.contents}"></h:inputHidden>
    </div>
 				
-			<div class="col-md-4"><h:commandButton value="Submit" action="#{ProductBean.AddProduct}" class="btn btn-info"></h:commandButton></div>
+			<div class="col-md-4"><h:commandButton   onclick="getDataEditor()" value="Submit" action="#{ProductBean.AddProduct}" class="btn btn-info"></h:commandButton></div>
 			<div class="col-md-8">
 			
-			<h:outputLink value="Managerproduct_Admin.xhtml" class="btn btn-info"> Managed Product Page</h:outputLink></div>
+			<h:outputLink  value="Managerproduct_Admin.xhtml" class="btn btn-info"> Managed Product Page</h:outputLink></div>
 </h:form>
 
 </div>
@@ -60,8 +60,8 @@
 			<script>
 				function getDataEditor() {
 					var value = CKEDITOR.instances.editor1.getData();
-					$('#f\\:txtHidden').val(value);
-					alert("content: " + $('#f\\:txtHidden').val());
+					$('#form\\:txtHidden').val(value);
+					alert("content: " + $('#form\\:txtHidden').val());
 
 				}
 			</script>

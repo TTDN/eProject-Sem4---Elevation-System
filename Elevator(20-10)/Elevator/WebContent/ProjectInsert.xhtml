@@ -44,7 +44,7 @@
    </div>
 				
 			<div class="col-md-4"></div>
-			<div class="col-md-8"><h:commandButton value="Submit" action="#{ProjectBean.AddProject}"></h:commandButton></div>
+			<div class="col-md-8"><h:commandButton onclick="getDataEditor()" value="Submit" action="#{ProjectBean.AddProject}"></h:commandButton></div>
 </h:form>
 
 </div>
@@ -58,8 +58,8 @@
 			<script>
 				function getDataEditor() {
 					var value = CKEDITOR.instances.editor1.getData();
-					$('#f\\:txtHidden').val(value);
-					alert("content: " + $('#f\\:txtHidden').val());
+					$('#form\\:txtHidden').val(value);
+					alert("content: " + $('#form\\:txtHidden').val());
 
 				}
 			</script>
