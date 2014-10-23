@@ -29,7 +29,7 @@
 								placeholder="Your Full Name:"
 								value="#{ContactInforBean.ct.address}"
 								style="height:40px;width:60%;">
-								<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]" />
+								<f:validateLength minimum="6"></f:validateLength>
 							</h:inputText>
 							<br />
 							<h:message for="address" style="color:red; margin-left: 270px;" />
@@ -102,7 +102,7 @@
 								placeholder="Your Full Name:"
 								value="#{ContactInforBean.ct.skype}"
 								style="height:40px;width:60%;">
-								<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+								<f:validateLength minimum="6"></f:validateLength>
 
 							</h:inputText>
 							<h:message for="Sky" style="color:red; margin-left: 270px;" />
@@ -114,7 +114,7 @@
 								placeholder="Your Full Name:"
 								value="#{ContactInforBean.ct.yahoo}"
 								style="height:40px;width:60%;">
-								<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+								<f:validateLength minimum="6"></f:validateLength>
 
 							</h:inputText>
 							<h:message for="Yahoo" style="color:red; margin-left: 270px;" />

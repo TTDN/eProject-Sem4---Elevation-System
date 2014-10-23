@@ -10,6 +10,13 @@
 <!-- 	<h:outputStylesheet name="./css/bootstrap.css" /> -->
 	<h:outputStylesheet name="./css/styles.css" />
 	<title></title>
+	<style>
+		.ui-panel-titlebar{color: rgb(255, 254, 254);
+		background-color: darkgreen;
+		}
+	.ui-paginator {background-color: darkgreen;}
+	
+	</style>
 </h:head>
 
 <h:body>
@@ -37,48 +44,41 @@
 									</ul></li>
 							</ul>
 							<ul class="nav">
-								<li class="active"><a href="#">AdminManage</a></li>
+								<li class="active"><a href="#">Admin Page</a></li>
 								<li class="dropdown"><a href="#" data-toggle="dropdown"
 									class="dropdown-toggle">Settings <b class="caret"></b>
 
 								</a>
 									<ul class="dropdown-menu" id="menu1">
-										<li><a href="#">Tools <i class="icon-arrow-right"></i>
+										<li><a href="ContactInfor_Amin.xhtml">Contact Info <i class="icon-arrow-right"></i>
 
 										</a>
-											<ul class="dropdown-menu sub-menu">
-												<li><a href="#">Reports</a></li>
-												<li><a href="#">Logs</a></li>
-												<li><a href="#">Errors</a></li>
-											</ul></li>
-										<li><a href="#">SEO Settings</a></li>
-										<li><a href="#">Other Link</a></li>
-										<li class="divider"></li>
-										<li><a href="#">Other Link</a></li>
-										<li><a href="#">Other Link</a></li>
-									</ul></li>
-								<li class="dropdown"><a href="#" role="button"
-									class="dropdown-toggle" data-toggle="dropdown">Content <i
-										class="caret"></i>
+										</li>
+										</ul>
+										</li>
+<!-- 								<li class="dropdown"><a href="#" role="button" -->
+<!-- 									class="dropdown-toggle" data-toggle="dropdown">Manage Admin<i -->
+<!-- 										class="caret"></i> -->
 
-								</a>
-									<ul class="dropdown-menu">
-										<li><a tabindex="-1" href="#">Blog</a></li>
-										<li><a tabindex="-1" href="#">News</a></li>
-										<li><a tabindex="-1" href="#">Custom Pages</a></li>
-										<li><a tabindex="-1" href="#">Calendar</a></li>
-										<li class="divider"></li>
-										<li><a tabindex="-1" href="#">FAQ</a></li>
-									</ul></li>
+<!-- 								</a> -->
+<!-- 									<ul class="dropdown-menu"> -->
+<!-- 										<li><a tabindex="-1" href="#">Blog</a></li> -->
+<!-- 										<li><a tabindex="-1" href="#">News</a></li> -->
+<!-- 										<li><a tabindex="-1" href="#">Custom Pages</a></li> -->
+<!-- 										<li><a tabindex="-1" href="#">Calendar</a></li> -->
+<!-- 										<li class="divider"></li> -->
+<!-- 										<li><a tabindex="-1" href="#">FAQ</a></li> -->
+<!-- 									</ul></li> -->
 								<li class="dropdown"><a href="#" role="button"
 									class="dropdown-toggle" data-toggle="dropdown">Users <i
 										class="caret"></i>
 
 								</a>
 									<ul class="dropdown-menu">
-										<li><a tabindex="-1" href="#">User List</a></li>
-										<li><a tabindex="-1" href="#">Search</a></li>
-										<li><a tabindex="-1" href="#">Permissions</a></li>
+										<li><a tabindex="-1" href="ManageUser.xhtml">User List</a></li>
+										<li><a tabindex="-1" href="">Manage Complaint</a></li>
+										<li><a tabindex="-1" href="Feedback_Admin.xhtml">Managed Feedback</a></li>
+										
 									</ul></li>
 							</ul>
 						</div>
@@ -100,14 +100,11 @@
 										class="icon-chevron-right"></i>Add New Admin</a></li>
 								<li><a href="Managerproduct_Admin.xhtml"><i
 										class="icon-chevron-right"></i>Managed Product</a></li>
-								<li><a href="ProjectManaged.xhtml"><i
+								<li><a href="ProjectManage.xhtml"><i
 										class="icon-chevron-right"></i>Managed Project</a></li>
-								<li><a href="Feedback_Admin.xhtml"><i
-										class="icon-chevron-right"></i>Managed Feedback</a></li>
+								
 								<li><a href="ManagedQuotes.xhtml"><i
 										class="icon-chevron-right"></i>Managed Quotes</a></li>
-								<li><a href="Complaint_Admin.xhtml"><i
-										class="icon-chevron-right"></i>Managed Complaint</a></li>
 								<li><a href="ManagedContactus.xhtml"><i
 										class="icon-chevron-right"></i>Managed Contact Us</a></li>
 								
@@ -131,5 +128,7 @@
 			</ui:insert>
 		</div>
 	</div>
+	<ui:insert name="script">
+	</ui:insert>
 </h:body>
 </html>

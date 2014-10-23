@@ -100,7 +100,7 @@
 								placeholder="Your Full Name:"
 								value="#{ContactInforBean.ct.skype}"
 								style="height:40px;width:60%;">
-								<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+								<f:validateLength minimum="6"></f:validateLength> 
 
 							</h:inputText>
 							<h:message for="Sky" style="color:red; margin-left: 270px;" />
@@ -112,13 +112,13 @@
 								placeholder="Your Full Name:"
 								value="#{ContactInforBean.ct.yahoo}"
 								style="height:40px;width:60%;">
-								<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+								<f:validateLength minimum="6"></f:validateLength> 
 
 							</h:inputText>
 							<h:message for="Yahoo" style="color:red; margin-left: 270px;" />
 						</p>
 						<h:commandButton class="btn btn-success btn-lg btn-block"
-							style="width: 59%;height: 50px;margin-left: 140px;"
+							style="width: 59%;height: 50px;margin-left: 230px;"
 							action="#{ContactInforBean.updateCTIF}"
 							value="Update ContactInfo" />
 						<br></br>

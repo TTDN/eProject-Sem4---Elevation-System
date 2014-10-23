@@ -11,11 +11,13 @@
 	<ui:composition template="./AdminMaster.xhtml">
 
 		<ui:define name="content">
-
+<div
+				style="background-color: white; margin: 45px 0px 100px 300px; position: absolute; border-radius: 10px">
+				<h1 style="color: darkgreen;margin-left: 377px;"> Feedback List</h1>
 
 			<h:form id="form">
 
-				<p:dataTable var="fb" value="#{insertfeedback.listFeedbackDTOs}" style="margin-left: 248px; width:800px;margin-top:40px;" >
+				<p:dataTable var="fb" value="#{insertfeedback.listFeedbackDTOs}" style="width:100%;" >
 					<p:column headerText="Name">
 						<h:outputText value="#{fb.name}" />
 					</p:column>
@@ -37,7 +39,7 @@
 
 			</h:form>
 
-
+</div>
 		</ui:define>
 
 	</ui:composition>

@@ -51,5 +51,16 @@ public class ProjectDTO {
 		// TODO Auto-generated constructor stub
 	}
 	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "(" + ID_Project
+				+ ", " + Description
+				+ ", " + Images
+				+ ", " + Name
+				+ ", " + Contents
+				+ ")";
+	}
+	
 
 }

@@ -79,8 +79,8 @@ public class QuotesBean {
 	
 		QuotesDAO q= new QuotesDAO();
 		q.InsertQuotes(qu);
-HttpUtil.putToSession("quotes", "Thank you very much ! We will send quotes to you soon.");
-		return "Quotes.xhtml?faces-redirect=true";
+/*HttpUtil.putToSession("quotes", "Thank you very much ! We will send quotes to you soon.");*/
+		return "thank.xhtml?faces-redirect=true";
 	}
 	
 	

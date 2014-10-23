@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Insert Project</title>
+</h:head>
+
+<h:body>
+	<ui:composition template="./AdminMaster.xhtml">
+		<ui:define name="content">
+		
+		<div
+				style="background-color: wheat; margin: 45px 0px 100px 300px; position: absolute; border-radius: 10px">
+				<div class="container-fluid">
+			<div class="row" >
+  <h:form enctype="multipart/form-data" id="form">
+  <!-- name -->
+  <div class="col-md-4"><h:outputLabel value="Name Product"></h:outputLabel> </div>
+  <div class="col-md-8"><h:inputText value="#{ProductBean.p.name}"></h:inputText> </div>
+  <!-- des -->
+  <div class="col-md-4"><h:outputLabel value="Description: "></h:outputLabel> </div>
+  <div class="col-md-8"><h:inputText value="#{ProductBean.p.description}"></h:inputText> </div>
+  
+  <!-- image -->
+	<div class="col-md-4"><h:outputLabel value="Image "></h:outputLabel> </div>
+  <div class="col-md-8"><p:fileUpload value="#{ProductBean.file}"  disabled="false"
+					mode="simple"
+					allowTypes="/(\.|\/)(gif|jpg|jpeg|gif|png|PNG|GIF|JPG|JPEG)$/"
+					sizeLimit="100000" description="Select Images" multiple="false" /> </div>
+  
+  <!-- content -->
+  <div class="col-md-4"><h:outputLabel value="Content "></h:outputLabel> </div>
+  <div class="col-md-8">
+  <script src="//cdn.ckeditor.com/4.4.5/full/ckeditor.js"></script>
+				<textarea name="editor1"></textarea>
+				<script>
+					CKEDITOR.replace('editor1');
+				</script>
+  <h:inputTextarea id="txtHidden" value="#{ProductBean.p.contents}"></h:inputTextarea>
+   </div>
+				
+			<div class="col-md-4"><h:commandButton value="Submit" action="#{ProductBean.AddProduct}" class="btn btn-info"></h:commandButton></div>
+			<div class="col-md-8">
+			
+			<h:outputLink value="Managerproduct_Admin.xhtml" class="btn btn-info"> Managed Product Page</h:outputLink></div>
+</h:form>
+
+</div>
+</div>
+</div>
+
+		</ui:define>
+		
+		<ui:define name="script">
+				<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+			<script>
+				function getDataEditor() {
+					var value = CKEDITOR.instances.editor1.getData();
+					$('#f\\:txtHidden').val(value);
+					alert("content: " + $('#f\\:txtHidden').val());
+
+				}
+			</script>
+		
+		</ui:define>
+		
+	</ui:composition>
+</h:body>
+</html>

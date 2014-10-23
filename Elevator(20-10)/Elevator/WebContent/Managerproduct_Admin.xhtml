@@ -14,6 +14,10 @@
 		<ui:define name="content">
 			<div
 				style="background-color: white; margin: 45px 0px 100px 300px; position: absolute; border-radius: 10px">
+				<h:outputLink value="Addproduct.xhtml" class="btn btn-info">Add New Product </h:outputLink>
+				<br></br>
+				<br></br>
+				<br></br>
 				<h:form>
 				<p:dataTable var="a" value="#{ProductBean.listproduct}"
 					editable="true">
@@ -30,6 +34,8 @@
 				</p:dataTable>
 
 </h:form>
+
+
 
 
 			</div>

@@ -22,9 +22,7 @@
 			<p:dataTable id="cars2" var="a" value="#{QuotesBean.listquotes}" editable="true" editMode="cell" widgetVar="cellCars"
 			rows="10" paginator="true" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                          rowsPerPageTemplate="5,10,15">
-       <f:facet name="header">
-           Cell Editing with Click and RightClick
-       </f:facet>
+      
  
        <p:ajax event="cellEdit" listener="#{QuotesBean.listquotes}" update=":form:msgs" />
  

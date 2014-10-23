@@ -33,12 +33,14 @@
 				} ]
 			});
 </script>
+
 <h:body>
+
 	<h:form enctype="multipart/form-data">
-		<h:outputLabel value="Product Name: "></h:outputLabel>
-		<h:inputText  id="name" value="#{ProductBean.prByID.name}"></h:inputText>
+		<h:outputLabel value="Project Name: "></h:outputLabel>
+		<h:inputText  id="name" value="#{ProjectBean.projectByID.name}"></h:inputText>
 		<br />
-	
+		image
 		<br />
 		<h:outputLabel value="Cover: "></h:outputLabel>
 		<p:fileUpload value="#{ProjectBean.file}" disabled="false"
@@ -47,12 +49,12 @@
 			sizeLimit="100000" description="Select Images" multiple="false" />
 		<br />
 		<h:outputLabel value="Description: "></h:outputLabel>
-		<h:inputText id="des" value="#{ProductBean.prByID.description}"></h:inputText>
+		<h:inputText id="des" value="#{ProjectBean.projectByID.description}"></h:inputText>
 		<br />
 		<h:inputTextarea name="content" style="width: 50%"
-			value="#{ProductBean.prByID.contents}"></h:inputTextarea> 
+			value="#{ProjectBean.projectByID.contents}"></h:inputTextarea> 
 		<br />
-		<h:commandButton value="Submit" action="#{ProductBean.EditProduct}"></h:commandButton>
+		<h:commandButton value="Submit" action="#{ProjectBean.EditProject}"></h:commandButton>
 	</h:form>
 </h:body>
 </html>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>CKEditor JSF Component Test</title>
+</h:head>
+<h:outputScript src="//tinymce.cachefly.net/4.1/tinymce.min.js"></h:outputScript>
+<h:outputScript type="text/javascript">
+	tinymce
+			.init({
+				selector : "textarea",
+				theme : "modern",
+				plugins : [
+						"advlist autolink lists link image charmap print preview hr anchor pagebreak",
+						"searchreplace wordcount visualblocks visualchars code fullscreen",
+						"insertdatetime media nonbreaking save table contextmenu directionality",
+						"emoticons template paste textcolor colorpicker textpattern" ],
+				toolbar1 : "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+				toolbar2 : "print preview media | forecolor backcolor emoticons",
+				image_advtab : true,
+				templates : [ {
+					title : 'Test template 1',
+					content : 'Test 1'
+				}, {
+					title : 'Test template 2',
+					content : 'Test 2'
+				} ]
+			});
+</h:outputScript>
+<h:body>
+	<h:form>
+		<h:inputTextarea name="content" style="width: 50%" value="#{ProjectBean.content}"></h:inputTextarea>
+		<br/>gggg
+		<h:commandButton value="Show!" action="#{ProjectBean.Show}"></h:commandButton>
+	</h:form>
+	<h:outputText value="#{ProjectBean.content}" escape="false"></h:outputText>
+</h:body>
+</html>

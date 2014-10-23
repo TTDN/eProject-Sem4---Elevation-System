@@ -16,7 +16,7 @@ import util.HttpUtil;
 
 public class ProductDAO {
 
-	public boolean InsertProduct(ProductDTO p) {
+	public static boolean InsertProduct(ProductDTO p) {
 
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
@@ -41,7 +41,7 @@ public class ProductDAO {
 		return false;
 	}
 
-	public boolean UpdateProduct(ProductDTO p) {
+	public  static boolean UpdateProduct(ProductDTO p) {
 
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
@@ -143,13 +143,17 @@ public static ProductDTO findidProductDTO(int id) {
 			PreparedStatement ps = conn
 					.prepareStatement("SELECT * FROM Product WHERE ID_Product = ?");
 			ps.setInt(1, id);
+			System.out.println(id);
 			ResultSet rs = ps.executeQuery();
+			System.out.println(rs);
 			while(rs.next()) {
+				p.setID_Product(rs.getInt("ID_Product"));
 				p.setName(rs.getString("Name"));
 				p.setImages(rs.getString("Images"));
 				p.setDescription(rs.getString("Description"));
-				p.setStatus(rs.getBoolean("Status"));
+				//p.setStatus(rs.getBoolean("Status"));
 				p.setContents(rs.getString("Contents"));
+				
 		
 			}
 		} catch (SQLException | ClassNotFoundException e) {
