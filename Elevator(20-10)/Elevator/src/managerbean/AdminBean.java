@@ -68,12 +68,17 @@ public class AdminBean {
 				.valueOf(HttpUtil.getFromSession("AdminLoginNotification"));
 	}
 
+	public String getSessionUsername(){
+		return String.valueOf(HttpUtil.getFromSession("AdminUsername"));
+	}
+	
 	public String getSessionID_Admin() {
 		return String.valueOf(HttpUtil.getFromSession("IDAdmin"));
 	}
-
-	public String LogOut_DestroySessionAdminUsername() {
+	
+	public String LogOut_DestroySessionAdmin(){
 		HttpUtil.putToSession("AdminUsername", null);
+		HttpUtil.putToSession("IDAdmin", null);
 		return "AdminLogin";
 	}
 
@@ -81,6 +86,9 @@ public class AdminBean {
 		Boolean b = AdminDAO.Login(ad.getUserName(), ad.getPassWord());
 		if (b == true) {
 			HttpUtil.putToSession("AdminUsername", ad.getUserName());
+			AdminDTO admin = new AdminDTO();
+			admin = AdminDAO.findUser(ad.getUserName());
+			HttpUtil.putToSession("AdminID", admin.getID_Admin());
 			return "AdminManage";
 		} else {
 			HttpUtil.putToSession("AdminLoginNotification",

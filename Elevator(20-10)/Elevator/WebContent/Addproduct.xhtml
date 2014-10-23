@@ -40,29 +40,31 @@
 				<script>
 					CKEDITOR.replace('editor1');
 				</script>
-  <h:inputTextarea id="txtHidden" value="#{ProductBean.p.contents}"></h:inputTextarea>
+  <h:inputHidden id="txtHidden" value="#{ProductBean.p.contents}"></h:inputHidden>
    </div>
 				
-			<div class="col-md-4"><h:commandButton value="Submit" action="#{ProductBean.AddProduct}" class="btn btn-info"></h:commandButton></div>
+			<div class="col-md-4"><h:commandButton   onclick="getDataEditor()" value="Submit" action="#{ProductBean.AddProduct}" class="btn btn-info"></h:commandButton></div>
 			<div class="col-md-8">
 			
-			<h:outputLink value="Managerproduct_Admin.xhtml" class="btn btn-info"> Managed Product Page</h:outputLink></div>
+			<h:outputLink  value="Managerproduct_Admin.xhtml" class="btn btn-info"> Managed Product Page</h:outputLink></div>
 </h:form>
-
 </div>
 </div>
 </div>
-
 		</ui:define>
-		
 		<ui:define name="script">
 				<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 			<script>
 				function getDataEditor() {
 					var value = CKEDITOR.instances.editor1.getData();
+<<<<<<< HEAD
+					$('#form\\:txtHidden').val(value);
+					alert("content: " + $('#form\\:txtHidden').val());
+
+=======
 					$('#f\\:txtHidden').val(value);
 					alert("content: " + $('#f\\:txtHidden').val());
-
+>>>>>>> origin/master
 				}
 			</script>
 		

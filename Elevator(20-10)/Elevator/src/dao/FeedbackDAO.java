@@ -134,6 +134,8 @@ public class FeedbackDAO {
 		}
 		return listus;
 	}
+	
+	
 	public static FeedbackDTO findIdFeefback(int id) {
 		FeedbackDTO fb = new FeedbackDTO();
 		try {

@@ -106,7 +106,7 @@ public class ComplaintDAO {
 		return listcp;
 	}
 
-	public ComplaintDTO findidComplaint(int id) {
+	public static ComplaintDTO findidComplaint(int id) {
 		ComplaintDTO ad = new ComplaintDTO();
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
@@ -129,6 +129,8 @@ public class ComplaintDAO {
 		return ad;
 	}
 
+	
+	
 
 	
 	

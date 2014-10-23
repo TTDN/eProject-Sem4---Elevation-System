@@ -5,13 +5,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 
+import util.HttpUtil;
 import dao.ComplaintDAO;
+import dao.FeedbackDAO;
 import dao.UserDAO;
 import dto.ComplaintDTO;
+import dto.FeedbackDTO;
 import dto.UserDTO;
 
 @ManagedBean(name = "complaintBean")
+
+@SessionScoped
 public class ComplaintBean {
 
 	public static final long serialVersionUID = 1L;
@@ -71,6 +78,16 @@ public class ComplaintBean {
 		
 		
 		return us;
+	}
+	
+
+	public String View (int id){
+		HttpUtil.putToSession("id", id);
+		return "/Detail_Complaint";
+	}
+	public ComplaintDTO getComplaintById(){
+		int id = Integer.valueOf(String.valueOf(HttpUtil.getFromSession("id")));
+		return ComplaintDAO.findidComplaint(id);
 	}
 
 }

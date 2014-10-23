@@ -232,6 +232,7 @@ public class UserDAO {
 					us.setEmail(rs.getString("Email"));
 					us.setAddress(rs.getString("Address"));
 					us.setCompany(rs.getString("Company"));
+					us.setContent(c.getContents());
 					listus.add(us);
 					System.out.println("us.f" + us.getFullName());
 				}

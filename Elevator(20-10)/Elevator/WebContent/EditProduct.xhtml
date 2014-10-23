@@ -10,49 +10,86 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <title>Edit Project</title>
 </head>
-<script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
-<script type="text/javascript">
-	tinymce
-			.init({
-				selector : "textarea",
-				theme : "modern",
-				plugins : [
-						"advlist autolink lists link image charmap print preview hr anchor pagebreak",
-						"searchreplace wordcount visualblocks visualchars code fullscreen",
-						"insertdatetime media nonbreaking save table contextmenu directionality",
-						"emoticons template paste textcolor colorpicker textpattern" ],
-				toolbar1 : "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
-				toolbar2 : "print preview media | forecolor backcolor emoticons",
-				image_advtab : true,
-				templates : [ {
-					title : 'Test template 1',
-					content : 'Test 1'
-				}, {
-					title : 'Test template 2',
-					content : 'Test 2'
-				} ]
-			});
-</script>
+
 <h:body>
-	<h:form enctype="multipart/form-data">
-		<h:outputLabel value="Product Name: "></h:outputLabel>
-		<h:inputText  id="name" value="#{ProductBean.prByID.name}"></h:inputText>
-		<br />
+<!-- 	<h:form enctype="multipart/form-data"> -->
+<!-- 		<h:outputLabel value="Product Name: "></h:outputLabel> -->
+<!-- 		<h:inputText  id="name" value="#{ProductBean.prByID.name}"></h:inputText> -->
+<!-- 		<br /> -->
 	
-		<br />
-		<h:outputLabel value="Cover: "></h:outputLabel>
-		<p:fileUpload value="#{ProjectBean.file}" disabled="false"
-			mode="simple"
-			allowTypes="/(\.|\/)(jpg|jpeg|png|PNG|JPG|JPEG)$/"
-			sizeLimit="100000" description="Select Images" multiple="false" />
-		<br />
-		<h:outputLabel value="Description: "></h:outputLabel>
-		<h:inputText id="des" value="#{ProductBean.prByID.description}"></h:inputText>
-		<br />
-		<h:inputTextarea name="content" style="width: 50%"
-			value="#{ProductBean.prByID.contents}"></h:inputTextarea> 
-		<br />
-		<h:commandButton value="Submit" action="#{ProductBean.EditProduct}"></h:commandButton>
-	</h:form>
+<!-- 		<br /> -->
+<!-- 		<h:outputLabel value="Cover: "></h:outputLabel> -->
+<!-- 		<p:fileUpload value="#{ProjectBean.file}" disabled="false" -->
+<!-- 			mode="simple" -->
+<!-- 			allowTypes="/(\.|\/)(jpg|jpeg|png|PNG|JPG|JPEG)$/" -->
+<!-- 			sizeLimit="100000" description="Select Images" multiple="false" /> -->
+<!-- 		<br /> -->
+<!-- 		<h:outputLabel value="Description: "></h:outputLabel> -->
+<!-- 		<h:inputText id="des" value="#{ProductBean.prByID.description}"></h:inputText> -->
+<!-- 		<br /> -->
+<!-- 		<h:inputTextarea name="content" style="width: 50%" -->
+<!-- 			value="#{ProductBean.prByID.contents}"></h:inputTextarea>  -->
+<!-- 		<br /> -->
+<!-- 		<h:commandButton value="Submit" action="#{ProductBean.EditProduct}"></h:commandButton> -->
+<!-- 	</h:form> -->
+	
+	
+	<!-- test -->
+	
+	<ui:composition template="./AdminMaster.xhtml">
+		<ui:define name="content">
+		
+		<div
+				style="background-color: wheat; margin: 45px 0px 100px 300px; position: absolute; border-radius: 10px">
+				<div class="container-fluid">
+			<div class="row" >
+  <h:form enctype="multipart/form-data" id="form">
+  <!-- name -->
+  <div class="col-md-4"><h:outputLabel value="Name Product"></h:outputLabel> </div>
+  <div class="col-md-8"><h:inputText value="#{ProductBean.prByID.name}"></h:inputText> </div>
+  <!-- des -->
+  <div class="col-md-4"><h:outputLabel value="Description: "></h:outputLabel> </div>
+  <div class="col-md-8"><h:inputText value="#{ProductBean.prByID.description}"></h:inputText> </div>
+  
+  
+  
+  <!-- content -->
+  <div class="col-md-4"><h:outputLabel value="Content "></h:outputLabel> </div>
+  <div class="col-md-8">
+  <script src="//cdn.ckeditor.com/4.4.5/full/ckeditor.js"></script>
+				<textarea name="editor1"></textarea>
+				<script>
+					CKEDITOR.replace('editor1');
+				</script>
+  <h:inputHidden id="txtHidden" value="#{ProductBean.prByID.contents}"></h:inputHidden>
+   </div>
+				
+			<div class="col-md-4"><h:commandButton  onclick="getDataEditor()" value="Submit" action="#{ProductBean.EditProduct}" class="btn btn-info"></h:commandButton></div>
+			<div class="col-md-8">
+			
+			<h:outputLink  value="Managerproduct_Admin.xhtml" class="btn btn-info"> Managed Product Page</h:outputLink></div>
+</h:form>
+
+</div>
+</div>
+</div>
+
+		</ui:define>
+		
+		<ui:define name="script">
+				<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+			<script>
+				function getDataEditor() {
+					var value = CKEDITOR.instances.editor1.getData();
+					$('#form\\:txtHidden').val(value);
+					alert("content: " + $('#form\\:txtHidden').val());
+
+				}
+			</script>
+		
+		</ui:define>
+		
+	</ui:composition>
+	
 </h:body>
 </html>
