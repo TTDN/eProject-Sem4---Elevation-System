@@ -11,6 +11,7 @@ import java.util.List;
 
 import util.HttpUtil;
 import dto.AdminDTO;
+import dto.UserDTO;
 
 public class AdminDAO {
 	public String getSession() {
@@ -203,5 +204,32 @@ public class AdminDAO {
 		} else {
 			return false;
 		}
+	}
+	
+	public static AdminDTO findUser(String username) {
+
+		AdminDTO ad = new AdminDTO();
+		try {
+			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+			Connection conn = (Connection) DriverManager
+					.getConnection("jdbc:sqlserver://localhost:1433;databaseName=ElevationSystem;user=sa;password=1234567;");
+			PreparedStatement ps = conn
+					.prepareStatement("SELECT * FROM [Admin] WHERE UserName = ?");
+
+			ps.setString(1, username);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				ad.setID_Admin(rs.getInt("ID_Admin"));
+				ad.setUserName(rs.getString("UserName"));
+				ad.setPassWord(rs.getString("PassWord"));
+				ad.setFullname(rs.getString("FullName"));
+				ad.setPhone(rs.getString("Phone"));
+				ad.setEmail(rs.getString("Email"));
+				ad.setAddress(rs.getString("Address"));
+			}
+		} catch (SQLException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return ad;
 	}
 }

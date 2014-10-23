@@ -1,10 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project-modules id="moduleCoreId" project-version="1.5.0">
-	<wb-module deploy-name="Elevation_System">
-		<wb-resource deploy-path="/" source-path="/WebContent"
-			tag="defaultRootSource" />
-		<wb-resource deploy-path="/WEB-INF/classes" source-path="/src" />
-		<property name="context-root" value="Elevation_System" />
-		<property name="java-output-path" value="/Elevation_System/build/classes" />
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+	<wb-module deploy-name="Elevation_SystemGhepcode">
+		<wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+		<wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+		<property name="java-output-path" value="/Elevation_SystemGhepcode/build/classes"/>
+        <property name="context-root" value="Elevation_SystemGhepcode"/>
 	</wb-module>
 </project-modules>

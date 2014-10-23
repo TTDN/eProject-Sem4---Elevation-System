@@ -35,15 +35,16 @@ public class UserBean {
 		// TODO Auto-generated constructor stub
 	}
 	public String getSession(){
-		System.out.println(HttpUtil.getFromSession("username"));
+		//System.out.println(HttpUtil.getFromSession("username"));
 		return String.valueOf(HttpUtil.getFromSession("username"));
 	}
-	public static String getSessionId(){
-		System.out.println(HttpUtil.getFromSession("id"));
+	public String getSessionId(){
+		//System.out.println(HttpUtil.getFromSession("id"));
 		return String.valueOf(HttpUtil.getFromSession("id"));
 	}
 	public String DestroySession(){
 		HttpUtil.putToSession("username", null);
+		HttpUtil.putToSession("id", null);
 		return "Index";
 	}
 	
@@ -56,12 +57,11 @@ public class UserBean {
 	
 public String Login(){
 		
-	
 		Boolean u = UserDAO.FindByUsername(us.getUserName(), us.getPassWord());
 
-		System.out.println(us.getUserName() + us.getPassWord());
+		//System.out.println(us.getUserName() + us.getPassWord());
 		if(u == true){
-			System.out.println("Co");
+			//System.out.println("Co");
 			HttpUtil.putToSession("username", us.getUserName());
 			UserDTO user=new UserDTO();
 			
@@ -70,7 +70,7 @@ public String Login(){
 			HttpUtil.putToSession("id", user.getID_User());
 			return "Index?faces-redirect=true";
 		}else{
-			System.out.println("Ko");
+			//System.out.println("Ko");
 			HttpUtil.putToSession("username", us.getUserName());
 		}
 		return null;
