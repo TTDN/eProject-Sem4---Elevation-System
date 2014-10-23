@@ -48,21 +48,23 @@
 			
 			<h:outputLink  value="Managerproduct_Admin.xhtml" class="btn btn-info"> Managed Product Page</h:outputLink></div>
 </h:form>
-
 </div>
 </div>
 </div>
-
 		</ui:define>
-		
 		<ui:define name="script">
 				<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 			<script>
 				function getDataEditor() {
 					var value = CKEDITOR.instances.editor1.getData();
+<<<<<<< HEAD
 					$('#form\\:txtHidden').val(value);
 					alert("content: " + $('#form\\:txtHidden').val());
 
+=======
+					$('#f\\:txtHidden').val(value);
+					alert("content: " + $('#f\\:txtHidden').val());
+>>>>>>> origin/master
 				}
 			</script>
 		
