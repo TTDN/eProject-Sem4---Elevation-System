@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:p="http://primefaces.org/ui" >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+<h:body>
+ <ui:composition template="./MasterPage.xhtml">
+
+            <ui:define name="content">
+        <div class="get-started center wow fadeInDown">
+                <h2>Complaint we service,please !</h2>
+                <p class="lead">
+                <div class="panel panel-primary" style="width: 600px; margin-left: 400px;">
+  <div class="panel-heading" style="width:600px;background-color: #48BB9B;">Complaint Form</div>
+  <div class="panel-body">
+  <h:form  id="form" class="form-horizontal">
+  <!-- Name -->
+    <div class="container" style="width: 100%">
+	    <h3>Contents:</h3>
+									<p:inputTextarea rows="5" cols="30" counter="display"
+										maxlength="500" counterTemplate="{0} characters remaining."
+										autoResize="false" class="input-block-level" id="contents"
+										required="true" requiredMessage="Contents not required"
+										placeholder="Contents" value="#{complaintBean.cpl.contents}"
+										style="width:500px ; height:200px" />
+
+									<h:message for="contents" style="color:red" />
+									<p>
+										<h:outputText id="display" />
+									</p>
+
+
+									<h:commandButton class="btn btn-primary btn-large pull-right"
+										value="Send Message" action="#{complaintBean.insertCPL}"></h:commandButton>
+	</div>
+	
+ </h:form>
+  
+  </div>
+</div>
+                
+                </p>
+               
+            </div>
+            <!--/.get-started-->
+             <div class="clients-area center wow fadeInDown">
+                <h2>What our client says</h2>
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br> et dolore magna aliqua. Ut enim ad minim veniam</br></p>
+            </div>
+               <div class="row">
+                <div class="col-md-4 wow fadeInDown">
+                    <div class="clients-comments text-center">
+                        <h:graphicImage library="images" name="client1.png" class="img-circle"/>
+                        <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</h3>
+                        <h4><span>-John Doe /</span>  Director of corlate.com</h4>
+                    </div>
+                </div>
+                <div class="col-md-4 wow fadeInDown">
+                    <div class="clients-comments text-center">
+                       
+                         <h:graphicImage library="images" name="client2.png" class="img-circle"/>
+                        <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</h3>
+                        <h4><span>-John Doe /</span>  Director of corlate.com</h4>
+                    </div>
+                </div>
+                <div class="col-md-4 wow fadeInDown">
+                    <div class="clients-comments text-center">
+                         <h:graphicImage library="images" name="client3.png" class="img-circle"/>
+                        <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</h3>
+                        <h4><span>-John Doe /</span>  Director of corlate.com</h4>
+                    </div>
+                </div>
+           </div>
+
+    
+</ui:define>
+</ui:composition>
+</h:body>
+</html>
