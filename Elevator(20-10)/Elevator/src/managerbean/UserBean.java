@@ -38,7 +38,7 @@ public class UserBean {
 		//System.out.println(HttpUtil.getFromSession("username"));
 		return String.valueOf(HttpUtil.getFromSession("username"));
 	}
-	public String getSessionId(){
+	public static String getSessionId(){
 		//System.out.println(HttpUtil.getFromSession("id"));
 		return String.valueOf(HttpUtil.getFromSession("id"));
 	}

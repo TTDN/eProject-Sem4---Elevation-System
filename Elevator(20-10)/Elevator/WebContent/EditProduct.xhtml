@@ -40,8 +40,10 @@
 		<ui:define name="content">
 		
 		<div
-				style="background-color: wheat; margin: 45px 0px 100px 300px; position: absolute; border-radius: 10px">
+				style="background-color: wheat; margin: 45px 0px 100px 300px; position: absolute; border-radius: 10px; width:75%;">
+				
 				<div class="container-fluid">
+				<h1 style="margin-left: 347px;"> Update Product</h1>
 			<div class="row" >
   <h:form enctype="multipart/form-data" id="form">
   <!-- name -->
@@ -63,8 +65,9 @@
 				</script>
   <h:inputHidden id="txtHidden" value="#{ProductBean.prByID.contents}"></h:inputHidden>
    </div>
-				
+				<br></br>
 			<div class="col-md-4"><h:commandButton  onclick="getDataEditor()" value="Submit" action="#{ProductBean.EditProduct}" class="btn btn-info"></h:commandButton></div>
+			<br></br>
 			<div class="col-md-8">
 			
 			<h:outputLink  value="Managerproduct_Admin.xhtml" class="btn btn-info"> Managed Product Page</h:outputLink></div>

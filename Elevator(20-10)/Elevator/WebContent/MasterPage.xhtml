@@ -37,7 +37,7 @@
 	<!-- top -->
 	<div id="top">
 		<ui:insert name="top">
-<<<<<<< HEAD
+
 		<header id="header">
        <div class="top-bar">
             <div class="container">
@@ -85,7 +85,7 @@
                          
                                 </c:when>
                                 <c:otherwise>
-                                 <li><a href="Complaint.xhtml">Profile</a>  </li>
+                                 <li><a href="Complaint.xhtml">Complaint</a>  </li>
                                 <li> <h:form><h:commandButton action="#{UserBean.DestroySession}" style="width:180px;background-color:#48BB9B;" value="Log Out" class="btn btn-info"/></h:form></li>
                                
                                 </c:otherwise>
@@ -103,67 +103,9 @@
 		
     </header><!--/header-->
 	
-=======
-			<header id="header">
-			<div class="top-bar">
-				<div class="container">
-					<div class="row">
-						<div class="col-sm-6 col-xs-4"></div>
-						<div class="col-sm-6 col-xs-8">Hi, #{UserBean.session}</div>
-					</div>
-				</div>
-				<!--/.container-->
-			</div>
-			<!--/.top-bar--> <nav class="navbar navbar-inverse" role="banner">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse"
-						data-target=".navbar-collapse">
-						<span class="sr-only">Toggle navigation</span> <span
-							class="icon-bar"></span> <span class="icon-bar"></span> <span
-							class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="index.html"> <h:graphicImage
-							library="images" name="logo.png"
-							style="width:115px; height:52px;" /></a>
-				</div>
+			
 
-				<div class="collapse navbar-collapse navbar-right">
-					<ul class="nav navbar-nav">
-						<li class="active"><a href="Index.xhtml">Home</a></li>
-						<li><a href="Aboutus.xhtml">About Us</a></li>
-						<li><a href="Service.xhtml">Services</a></li>
-						<li><a href="Project.xhtml">Project</a></li>
-						<li><a href="Product.xhtml">Product</a></li>
-						<li><a href="Feedback.xhtml">Feedback</a></li>
-						<li><a href="Quotes.xhtml">Quotes</a></li>
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown">Account<i class="fa fa-angle-down"></i></a>
 
-							<ul class="dropdown-menu" style="background-color: #48BB9B;">
-								<c:choose>
-									<c:when test="#{UserBean.session == 'null'}">
-										<li><a href="Login.xhtml">Login</a></li>
-										<li><a href="Register.xhtml">Register</a></li>
-									</c:when>
-									<c:otherwise>
-										<li><a href="Profile.xhtml">Profile</a></li>
-										<li><h:form>
-												<h:commandButton action="#{UserBean.DestroySession}"
-													style="width:180px;background-color:#48BB9B;"
-													value="Log Out" class="btn btn-info" />
-											</h:form></li>
-									</c:otherwise>
-								</c:choose>
-							</ul></li>
-						<li><a href="Contactus.xhtml">Contact us</a></li>
-					</ul>
-				</div>
-			</div>
-			<!--/.container--> </nav><!--/nav--> </header>
-			<!--/header-->
-
->>>>>>> origin/master
 		</ui:insert>
 	</div>
 

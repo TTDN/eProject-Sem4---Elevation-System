@@ -21,7 +21,8 @@
 				<h:outputLink value="ProjectInsert.xhtml" class="btn btn-info"> Add New Project</h:outputLink>
 				<h:form id="form">
 					<p:dataTable var="p" value="#{ProjectBean.listproject}"
-						editable="true">
+						editable="true" rows="10" paginator="true" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15">
 						<p:column headerText="ID Project">
 							<h:outputText value="#{p.ID_Project}"/>
 						</p:column>

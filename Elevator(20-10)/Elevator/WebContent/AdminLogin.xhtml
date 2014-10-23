@@ -10,12 +10,15 @@
 	<ui:composition template="./AdminMaster.xhtml">
 
 		<ui:define name="content">
-			<h:form>
+		<div
+				style="background-color: wheat; margin: 45px 0px 100px 300px; position: absolute; border-radius: 10px; width:75%; ">
+			<h1 style="margin-left: 347px;"> Login Form</h1>
+			<h:form id="forml">
 				<h:outputLabel value="Username"></h:outputLabel>
 				<h:inputText value="#{AdminBean.ad.userName}"></h:inputText>
 				<br></br>
 				<h:outputLabel value="Password"></h:outputLabel>
-				<h:inputText value="#{AdminBean.ad.passWord}"></h:inputText>
+				<h:inputSecret value="#{AdminBean.ad.passWord}"></h:inputSecret>
 				<br></br>
 				<c:choose>
 					<c:when test="#{AdminBean.sessionAdminLoginNotification != 'null'}">
@@ -25,8 +28,10 @@
 				<br></br>
 				<h:selectBooleanCheckbox />Remember Password
                 <h:commandButton action="#{AdminBean.Login}"
-					value="Login"></h:commandButton>
+					value="Login" ></h:commandButton>
 			</h:form>
+			</div>
+			
 		</ui:define>
 
 	</ui:composition>

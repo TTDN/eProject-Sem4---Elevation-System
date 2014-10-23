@@ -46,7 +46,7 @@ public class ContactUsDAO {
 			PreparedStatement ps = conn
 					.prepareStatement("SELECT * FROM ContactUs");
 			ResultSet rs = ps.executeQuery();
-			if (rs.next()) {
+		while (rs.next()) {
 				
 				ContactUsDTO cu = new ContactUsDTO();
 				cu.setID_ContactUs(rs.getInt("ID_ContactUs"));

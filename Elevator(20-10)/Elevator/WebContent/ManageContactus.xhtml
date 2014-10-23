@@ -13,25 +13,25 @@
 
 		<ui:define name="content">
 			<div
-				style="background-color: white; margin: 45px 0px 100px 300px; position: absolute; border-radius: 10px; width:75%;" >
-				<h:outputLink value="Addproduct.xhtml" class="btn btn-info">Add New Product </h:outputLink>
-				<br></br>
-				<br></br>
-				<h1 style="margin-left:347px;"> List Products </h1>
-				<br></br>
+				style="background-color: white; margin: 45px 0px 100px 300px; position: absolute; border-radius: 10px">
+			<h1 style="margin-left: 347px;"> List Contact</h1>
 				<h:form>
-				<p:dataTable var="a" value="#{ProductBean.listproduct}"
+				<p:dataTable var="a" value="#{Contactus.listcontactus}"
 					editable="true" rows="10" paginator="true" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                          rowsPerPageTemplate="5,10,15">
-					<p:column headerText="Name Product">
-						<h:outputText value="#{a.name}" />
+
+					<p:column headerText="Customer Name">
+						<h:outputText value="#{a.name}" style="width:15%;" />
 					</p:column>
-					<p:column headerText="Description">
-						<h:outputText value="#{a.description}" />
+					<p:column headerText="Telephone">
+						<h:outputText value="#{a.telephone}" style="width:15%;" />
+					</p:column>
+					<p:column headerText="Company Name">
+					<h:outputText value="#{a.companyName}" style="width:15%;"></h:outputText>
 					</p:column>
 					
-					<p:column headerText="Edit">
-					<h:commandButton value="Edit" class="btn btn-primary" action="#{ProductBean.Edit(a.ID_Product)}"></h:commandButton>
+					<p:column headerText="Message">
+					<h:outputText value="#{a.contents}" style="width:55%;"></h:outputText>
 					</p:column>
 				</p:dataTable>
 

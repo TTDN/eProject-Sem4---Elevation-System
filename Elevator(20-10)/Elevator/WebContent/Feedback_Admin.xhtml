@@ -17,7 +17,8 @@
 
 			<h:form id="form">
 
-				<p:dataTable var="fb" value="#{insertfeedback.listFeedbackDTOs}" style="width:100%;" >
+				<p:dataTable var="fb" value="#{insertfeedback.listFeedbackDTOs}" style="width:100%;" rows="10" paginator="true" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15" >
 					<p:column headerText="Name">
 						<h:outputText value="#{fb.name}" />
 					</p:column>

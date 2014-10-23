@@ -11,13 +11,22 @@
         <ui:composition template="./AdminMaster.xhtml">
 
             <ui:define name="content" >
-
-              <h:form>
-              	<p:outputLabel value="Problem: #{insertfeedback.feedBackById.problem}"/>
-              	<p:outputLabel value="Contents: #{insertfeedback.feedBackById.contents}"/>
+<div
+				style="background-color: wheat; margin: 45px 0px 100px 300px; position: absolute; border-radius: 10px; width: 80%;">
+				<h1 style="color: darkgreen; margin-left: 347px;" > Feedback Details</h1>
+				<br></br>
+				<br></br>
+              <h:form style="border:soild black;" id="f1">
+              <h3 style="color:darkgreen; margin-left:100px; "> Problem </h3>
+              	<p:outputLabel  value="#{insertfeedback.feedBackById.problem}" style="margin-left:120px;"> </p:outputLabel>
+              	<br></br>
+              	 <h3 style="color:darkgreen; margin-left:100px;"> Contents </h3>
+              	<p:outputLabel value="#{insertfeedback.feedBackById.contents}" style="margin-left:120px;"></p:outputLabel>
               	
               	
               </h:form>
+              </div>
+              
             </ui:define>
             
 
